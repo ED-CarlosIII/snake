@@ -30,7 +30,8 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
-    /**Constructor de la clase con los siguientes parámetros,row para fila,col para columna,bs para pizarra*/
+    /**
+     * Constructor de la clase con los siguientes parámetros,row para fila,col para columna,bs para pizarra*/
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
