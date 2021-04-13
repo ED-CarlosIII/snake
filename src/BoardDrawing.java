@@ -48,7 +48,7 @@ public class BoardDrawing extends JPanel {
     
     
     /**método que crea una pizarra*/
-    private void crearPizarra(int row1, int col1, BoardScreen bs1) {
+    public void crearPizarra(int row1, int col1, BoardScreen bs1) {
         cells = new ArrayList<Rectangle>();
         cellnos = new int[row1 * col1];
         for (int i = 0; i < row1; i++) {
@@ -72,7 +72,7 @@ public class BoardDrawing extends JPanel {
             bs1.getPortals().add(temp);
         }
     }//cierre del método crearPizarra
-
+/** método que pinta cada uno de los componentes */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -163,7 +163,7 @@ public class BoardDrawing extends JPanel {
      * 
      * 
      */
-    private void Dibujar(Graphics2D g2d) {
+    public void Dibujar(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.getPortals()) {
             if (port.returnNature() == -1) {
@@ -203,7 +203,7 @@ public class BoardDrawing extends JPanel {
      */
     
     /**
-     @return método que informa de la posición del jugador
+     método que informa de la posición del jugador
      
      
      */
