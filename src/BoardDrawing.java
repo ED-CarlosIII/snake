@@ -7,6 +7,16 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+/**
+
+ *  Esta clase define el dibujo de nuestra tabla y su contenido
+
+ * @author: Celestino Garcia Meca
+
+ * @version: 13/04/2021
+
+
+ */
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
@@ -15,6 +25,8 @@ public class BoardDrawing extends JPanel {
     /**
      *
      */
+    //Campos de la clase
+    //Atributos de la clase
     int b = 0;
     int row = 8;
     int col = 8;
@@ -22,10 +34,17 @@ public class BoardDrawing extends JPanel {
     //int player;
     int[] cellnos;
 
-    BoardScreen bs;
+    BoardScreen bs;//Objeto boardscreen
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
+/**
 
+     * Constructor para la creación del objeto
+
+     * @param row  El parámetro row defina a cada fila de la tabla
+     * @param col  El parámetro col defina a cada columna de la tabla
+
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -37,34 +56,47 @@ public class BoardDrawing extends JPanel {
         //    bs.players.add(new Player(i));
         //get and add player(s) names
 
-        cells = new ArrayList<Rectangle>();
+        crearTabla(row, col, bs);//declaración del método crearTabla
+      
 
-        cellnos = new int[row * col];
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
+    }//Cierre del constructor
+    
+     /**
+
+     * Método que crea una tabla
+
+     */
+    private void crearTabla(int row1, int col1, BoardScreen bs1) {
+        cells = new ArrayList<Rectangle>();//Declara un arrayList de rectángulo
+        cellnos = new int[row1 * col1];
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < col1; j++) {
                 if (i % 2 == 0) {
-                    cellnos[i * col + j] = i * col + j;
+                    cellnos[i * col1 + j] = i * col1 + j;
                 } else {
-                    cellnos[i * col + j] = i * col + (row - 1 - j);
+                    cellnos[i * col1 + j] = i * col1 + (row1 - 1 - j);
                 }
             }
         }
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                cellnos[i * col + j] = row * col - 1 - cellnos[i * col + j];
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < col1; j++) {
+                cellnos[i * col1 + j] = row1 * col1 - 1 - cellnos[i * col1 + j];
             }
         }
-
         int noPorts = 8;
-        bs.setPortals(new ArrayList<Portal>(noPorts));
+        bs1.setPortals(new ArrayList<Portal>(noPorts));
         for (int i = 0; i < noPorts; i++) {
-            Portal temp = new Portal(row * col);
-            bs.getPortals().add(temp);
+            Portal temp = new Portal(row1 * col1);
+            bs1.getPortals().add(temp);
         }
+    }//Cierre del método
+    
+/**
 
-    }
+     * Método que pinta cada uno de los componentes de la tabla
 
+
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -118,10 +150,18 @@ public class BoardDrawing extends JPanel {
         int i = 0;                                // i is our visible numbering 
         recorreCells(i, g2d, cellWidth, cellHeight);
 
-        dibuja(g2d);
+        dibuja(g2d);//declaración del método dibuja
 
-    }
+    }//Cierre del método
+    
 
+    /**
+
+     * Método que dibuja la tabla
+
+    
+
+     */
     private void dibuja(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.getPortals()) {
@@ -150,8 +190,16 @@ public class BoardDrawing extends JPanel {
             g2d.drawLine((int) cells.get(ind).getCenterX(), (int) cells.get(ind).getCenterY(), (int) cells.get(j).getCenterX(), (int) cells.get(j).getCenterY());
 
         }
-    }
+    }//Cierre del método
+    
 
+    /**
+
+     * Método que recorre la tabla
+
+  
+
+     */
     private void recorreCells(int i, Graphics2D g2d, int cellWidth, int cellHeight) {
         for (Rectangle cell : cells) {
 
@@ -181,7 +229,8 @@ public class BoardDrawing extends JPanel {
             }
             i++;
         }
-    }
+    }//Cierre del método
+    
 
     /*
 	public void ensurePlayerPosition(){
@@ -190,6 +239,14 @@ public class BoardDrawing extends JPanel {
 				player = port.returnEnd();
 		}
 	}
+     */
+    
+    /**
+
+     * Método que informa de la posición del jugador
+
+     * @return Mensaje sobre la posición del jugador.
+
      */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
@@ -204,15 +261,22 @@ public class BoardDrawing extends JPanel {
             }
         }
         return message;
-    }
+    }//Cierre del método
+    
 
     /*
 	public void setPlayer(int a){
 		player = a;
 	}
      */
+    
+    /**
+
+     * Método que establece a un jugador en una posición determinada
+
+     */
     public void setPlayer(int a, int pnos) {
         bs.getPlayers().get(pnos).incPosition(a);
-    }
+    }//Cierre del método
 
-}
+}//Cierre de la clase
