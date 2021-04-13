@@ -62,11 +62,9 @@ public class BoardDrawing extends JPanel {
     }//Cierre del constructor
     
      /**
-
-     * Método que crea una tabla
-
+     Método que crea una tabla
      */
-    private void crearTabla(int row1, int col1, BoardScreen bs1) {
+    public void crearTabla(int row1, int col1, BoardScreen bs1) {
         cells = new ArrayList<Rectangle>();//Declara un arrayList de rectángulo
         cellnos = new int[row1 * col1];
         for (int i = 0; i < row1; i++) {
@@ -92,10 +90,7 @@ public class BoardDrawing extends JPanel {
     }//Cierre del método
     
 /**
-
-     * Método que pinta cada uno de los componentes de la tabla
-
-
+     Método que pinta cada uno de los componentes de la tabla
      */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -156,13 +151,9 @@ public class BoardDrawing extends JPanel {
     
 
     /**
-
-     * Método que dibuja la tabla
-
-    
-
+      Método que dibuja la tabla
      */
-    private void dibuja(Graphics2D g2d) {
+    public void dibuja(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.getPortals()) {
             if (port.returnNature() == -1) {
@@ -197,10 +188,8 @@ public class BoardDrawing extends JPanel {
 
      * Método que recorre la tabla
 
-  
-
      */
-    private void recorreCells(int i, Graphics2D g2d, int cellWidth, int cellHeight) {
+    public void recorreCells(int i, Graphics2D g2d, int cellWidth, int cellHeight) {
         for (Rectangle cell : cells) {
 
             String message = "" + cellnos[i];
