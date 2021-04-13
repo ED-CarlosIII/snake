@@ -4,16 +4,20 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
+/*
+* Esta clase define el dibujo de nuestra pizarra
+* @author: José Antonio Garrido García
+* @version: 13/04/2021
+ */
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
 public class BoardDrawing extends JPanel {
 
     /**
-     *
+     * Declaración de atributos
      */
     int b = 0;
     int row = 8;
@@ -26,9 +30,16 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     *
+     * Constructor para el dibujo de la pizarra
+     *
+     * @param row El parámetro row define el numero de fila
+     * @param col El parámetro col define el numero de columna
+     *
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
-
         this.row = row;
         this.col = col;
         //player = 0;
@@ -37,31 +48,7 @@ public class BoardDrawing extends JPanel {
         //    bs.players.add(new Player(i));
         //get and add player(s) names
 
-        cells = new ArrayList<Rectangle>();
-
-        cellnos = new int[row * col];
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (i % 2 == 0) {
-                    cellnos[i * col + j] = i * col + j;
-                } else {
-                    cellnos[i * col + j] = i * col + (row - 1 - j);
-                }
-            }
-        }
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                cellnos[i * col + j] = row * col - 1 - cellnos[i * col + j];
-            }
-        }
-
-        int noPorts = 8;
-        bs.portals = new ArrayList<Portal>(noPorts);
-        for (int i = 0; i < noPorts; i++) {
-            Portal temp = new Portal(row * col);
-            bs.getPortals().add(temp);
-        }
+        crearPizarra(row, col, bs);
 
     }
 
@@ -119,6 +106,34 @@ public class BoardDrawing extends JPanel {
         dibujarSnakesLadder(g2d);
 
     }
+    
+
+    private void crearPizarra(int row1, int col1, BoardScreen bs1) {
+
+        cells = new ArrayList<Rectangle>();
+        cellnos = new int[row1 * col1];
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < col1; j++) {
+                if (i % 2 == 0) {
+                    cellnos[i * col1 + j] = i * col1 + j;
+                } else {
+                    cellnos[i * col1 + j] = i * col1 + (row1 - 1 - j);
+                }
+            }
+        }
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < col1; j++) {
+                cellnos[i * col1 + j] = row1 * col1 - 1 - cellnos[i * col1 + j];
+            }
+        }
+        int noPorts = 8;
+        bs1.portals = new ArrayList<Portal>(noPorts);
+        for (int i = 0; i < noPorts; i++) {
+            Portal temp = new Portal(row1 * col1);
+            bs1.getPortals().add(temp);
+        }
+    }
+    
 
     private void dibujarCeldNum(Graphics2D g2d, int cellWidth, int cellHeight) {
         g2d.setColor(Color.BLUE);
