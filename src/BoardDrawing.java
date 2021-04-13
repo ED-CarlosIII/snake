@@ -52,6 +52,13 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     *
+     * Metodo el cual dibuja los componentes de nuestra pizarra
+     *
+     * @param g El parámetro g define los graficos
+     *
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -106,8 +113,17 @@ public class BoardDrawing extends JPanel {
         dibujarSnakesLadder(g2d);
 
     }
-    
 
+    /**
+     *
+     * Metodo el cual crea una pizarra
+     *
+     * @param row1 El parámetro row1 hace referencia a la primera fila
+     * @param col1 El parámetro col1 hace referencia a la primera columna
+     * @param bs1 El parámetro bs1 hace referencia a la primera pantalla de
+     * pizarra
+     *
+     */
     private void crearPizarra(int row1, int col1, BoardScreen bs1) {
 
         cells = new ArrayList<Rectangle>();
@@ -133,8 +149,18 @@ public class BoardDrawing extends JPanel {
             bs1.getPortals().add(temp);
         }
     }
-    
 
+    /**
+     *
+     * Metodo el cual dibuja las celdas y los numeros de nuestra pizarra
+     *
+     * @param g2d El parámetro g2d hace referencia a la segunda dimension
+     * @param cellWidth El parámetro cellWidth hace referencia al ancho de la
+     * celda
+     * @param celHeight El parámetro celHeight hace referencia a la altura de la
+     * celda pizarra
+     *
+     */
     private void dibujarCeldNum(Graphics2D g2d, int cellWidth, int cellHeight) {
         g2d.setColor(Color.BLUE);
         int i = 0;                                // i is our visible numbering
@@ -168,6 +194,14 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     *
+     * Metodo el cual dibuja las serpientes y las escaleras
+     *
+     * @param g2d El parámetro g2d hace referencia a la segunda dimension
+     *
+     *
+     */
     private void dibujarSnakesLadder(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.getPortals()) {
@@ -206,6 +240,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+    /**
+     *
+     * Metodo el cual garantiza la posición del jugador
+     *
+     * @param pnos El parámetro pnos hace referencia a la posición del jugador
+     *
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.getPortals()) {
@@ -225,6 +266,14 @@ public class BoardDrawing extends JPanel {
 	public void setPlayer(int a){
 		player = a;
 	}
+     */
+    /**
+     *
+     * Metodo el cual establece un jugador
+     *
+     * @param a El parámetro a hace referencia al otro punto
+     * @param pnos El parámetro pnos hace referencia a la posicion del jugador
+     *
      */
     public void setPlayer(int a, int pnos) {
         bs.getPlayers().get(pnos).aumentarPosicion(a);
