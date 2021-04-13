@@ -234,4 +234,4 @@ public class BoardDrawing extends JPanel {
         bs.getPlayers().get(pnos).incPosition(a);
     }
 
-}// cierre de la clase
+}// cierre de la clase  BoardDrawing
