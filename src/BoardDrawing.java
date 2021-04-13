@@ -1,4 +1,8 @@
-
+/**Esta clase define el dibujo de nuestra pizarra
+ * 
+@author  Miguel Caparrós González
+ 
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -13,7 +17,7 @@ import javax.swing.JPanel;
 public class BoardDrawing extends JPanel {
 
     /**
-     *
+     *Campos de la clase o atributos
      */
     int b = 0;
     int row = 8;
@@ -26,6 +30,7 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**Constructor de la clase con los siguientes parámetros,row para fila,col para columna,bs para pizarra*/
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -37,33 +42,36 @@ public class BoardDrawing extends JPanel {
         //    bs.players.add(new Player(i));
         //get and add player(s) names
 
-        cells = new ArrayList<Rectangle>();
+        crearPizarra(row, col, bs);
 
-        cellnos = new int[row * col];
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
+    }//cierre del constructor
+    
+    
+    /**método que crea una pizarra*/
+    private void crearPizarra(int row1, int col1, BoardScreen bs1) {
+        cells = new ArrayList<Rectangle>();
+        cellnos = new int[row1 * col1];
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < col1; j++) {
                 if (i % 2 == 0) {
-                    cellnos[i * col + j] = i * col + j;
+                    cellnos[i * col1 + j] = i * col1 + j;
                 } else {
-                    cellnos[i * col + j] = i * col + (row - 1 - j);
+                    cellnos[i * col1 + j] = i * col1 + (row1 - 1 - j);
                 }
             }
         }
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                cellnos[i * col + j] = row * col - 1 - cellnos[i * col + j];
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < col1; j++) {
+                cellnos[i * col1 + j] = row1 * col1 - 1 - cellnos[i * col1 + j];
             }
         }
-
         int noPorts = 8;
-        bs.setPortals(new ArrayList<Portal>(noPorts));
+        bs1.setPortals(new ArrayList<Portal>(noPorts));
         for (int i = 0; i < noPorts; i++) {
-            Portal temp = new Portal(row * col);
-            bs.getPortals().add(temp);
+            Portal temp = new Portal(row1 * col1);
+            bs1.getPortals().add(temp);
         }
-
-    }
+    }//cierre del método crearPizarra
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -147,8 +155,14 @@ public class BoardDrawing extends JPanel {
 
         Dibujar(g2d);
 
-    }
-
+    }//cierre del método paintComponent
+    
+    
+    /**
+     * método refactorizado
+     * 
+     * 
+     */
     private void Dibujar(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.getPortals()) {
@@ -177,7 +191,7 @@ public class BoardDrawing extends JPanel {
             g2d.drawLine((int) cells.get(ind).getCenterX(), (int) cells.get(ind).getCenterY(), (int) cells.get(j).getCenterX(), (int) cells.get(j).getCenterY());
 
         }
-    }
+    }//cierre del método dibujar
 
     /*
 	public void ensurePlayerPosition(){
@@ -186,6 +200,12 @@ public class BoardDrawing extends JPanel {
 				player = port.returnEnd();
 		}
 	}
+     */
+    
+    /**
+     @return método que informa de la posición del jugador
+     
+     
      */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
@@ -200,15 +220,18 @@ public class BoardDrawing extends JPanel {
             }
         }
         return message;
-    }
+    }//cierre del método ensurePlayerPosition
 
     /*
 	public void setPlayer(int a){
 		player = a;
 	}
      */
+    
+    /**
+     método que establece la posición*/
     public void setPlayer(int a, int pnos) {
         bs.getPlayers().get(pnos).incPosition(a);
     }
 
-}
+}// cierre de la clase
