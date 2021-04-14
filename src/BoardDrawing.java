@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ * Esta clase dibuja en la ventana principal el tablero de juego con sus casillas
+ * @author Victor
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Contrustor de la clase
+     * @param row Cantidad de filas del tablero de juego
+     * @param col Cantidad de columnas del tablero de juego
+     * @param bs Pantalla de juego
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -65,6 +76,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Metodo de pintado de componentes, invocado por el propio gestor de UI
+     * @param g Objeto Graphics para el renderizado de elementos de dibujo
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -199,6 +214,14 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * Genera un mensaje con la información de un movimiento de posición de un 
+     * jugador si este pasa por una escalera o una serpiente
+     * @param pnos Número del jugador
+     * @return Mensaje de actualizació de posicion generado
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -219,6 +242,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * Establece la posicion de un jugador en el tablero
+     * @param a Número de la posicion del tablero a ocupar
+     * @param pnos Número del jugador a actualizar
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
