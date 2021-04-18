@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author Agus
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     *
+     * @param row
+     * @param col
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -113,10 +124,18 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Método que crea el dibujo de la serpiente
+     * @param g2d
+     */
     public void dibujaSerpiente(Graphics2D g2d) {
         drawingSnake(g2d);
     }
 
+    /**
+     * Realiza el gráfico de la serpiente
+     * @param g2d
+     */
     public void drawingSnake(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.getPortals()) {
@@ -147,6 +166,13 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     *
+     * @param i
+     * @param g2d
+     * @param cellWidth
+     * @param cellHeight
+     */
     public void dibujaCelda(int i, Graphics2D g2d, int cellWidth, int cellHeight) {
         for (Rectangle cell : cells) {
             
@@ -178,6 +204,13 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     *
+     * @param xOffset
+     * @param cellWidth
+     * @param yOffset
+     * @param cellHeight
+     */
     public void emptyCell(int xOffset, int cellWidth, int yOffset, int cellHeight) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -199,6 +232,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * Método que realiza cambios sustanciales
+     * @param pnos
+     * @return
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.getPortals()) {
@@ -219,6 +259,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * Método que toma datos del jugador
+     * @param a
+     * @param pnos
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.getPlayers().get(pnos).incPosition(a);
     }

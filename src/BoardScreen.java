@@ -10,7 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ *
+ * @author HP
+ */
 public class BoardScreen extends JPanel{
 
     /**
@@ -225,26 +228,43 @@ public class BoardScreen extends JPanel{
 	JButton go;
 	JButton quit;
 
-	public void quitButtonActionListener(){
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
 		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
 	        System.exit(0);
 	}
 	
-	public void goButtonActionListener(){
+    /**
+     *
+     */
+    public void goButtonActionListener(){
 		mw.showCard("Two");
 		//mw.setBoard();
 		mw.resetAll();
 	}
 	
-	public void setMaxPlayers(int m){
+    /**
+     *
+     * @param m
+     */
+    public void setMaxPlayers(int m){
 		maxPlayers = m;
 	}
 	
-	public int returnMaxPlayers(){
+    /**
+     *
+     * @return
+     */
+    public int returnMaxPlayers(){
 		return getMaxPlayers();
 	}
 	
-	public void setUpPlayers(){
+    /**
+     *
+     */
+    public void setUpPlayers(){
 		setPlayers(new ArrayList<Player>());
 		for(int i = 0;i < returnMaxPlayers();i++)
 		    getPlayers().add(new Player(i));
@@ -257,7 +277,11 @@ public class BoardScreen extends JPanel{
 		
 	}
  	
-	public BoardScreen(MainWindow mw){
+    /**
+     *
+     * @param mw
+     */
+    public BoardScreen(MainWindow mw){
 		this.mw = mw;
 		
 		currPlayer = 0;
