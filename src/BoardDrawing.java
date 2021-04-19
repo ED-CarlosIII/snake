@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+///hola
 
 
 public class BoardDrawing extends JPanel{
