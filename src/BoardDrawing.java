@@ -92,18 +92,7 @@ public class BoardDrawing extends JPanel{
         int yOffset = (height - (row * cellHeight)) / 2;
 
 		
-		if(cells.isEmpty()){
-		for(int i=0;i< row;i++){
-			for(int j = 0;j<col;j++){
-				Rectangle latest = new Rectangle(
-						 xOffset + (j * cellWidth),
-                         yOffset + (i * cellHeight),
-                         cellWidth,
-                         cellHeight);
-				cells.add(latest); 
-			}
-		}
-		}
+        Componentes(xOffset, cellWidth, yOffset, cellHeight);
 	
 
 		g2d.setColor(Color.white);
@@ -176,6 +165,21 @@ public class BoardDrawing extends JPanel{
 		}
 		
 	}
+
+    public void Componentes(int xOffset, int cellWidth, int yOffset, int cellHeight) {
+        if(cells.isEmpty()){
+            for(int i=0;i< row;i++){
+                for(int j = 0;j<col;j++){
+                    Rectangle latest = new Rectangle(
+                            xOffset + (j * cellWidth),
+                            yOffset + (i * cellHeight),
+                            cellWidth,
+                            cellHeight);
+                    cells.add(latest);
+                }
+            }
+        }
+    }
 	/*
 	public void ensurePlayerPosition(){
 		for(Portal port :portals){

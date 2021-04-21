@@ -11,34 +11,39 @@ import javax.swing.JRadioButton;
 //needs massive aesthetic rewrites
 
 public class PlayerSelectScreen extends JPanel {
-	JButton go;
-	JButton quit;
-	MainWindow mw;
+	private JButton go;
+	private JButton quit;
+	private MainWindow mw;
 	
-	JRadioButton opt1;
-	JRadioButton opt2;
-	JRadioButton opt3;
+	private JRadioButton opt1;
+	private JRadioButton opt2;
+	private JRadioButton opt3;
 	
 	public void quitButtonActionListener(){
-		mw.showCard("One");
+		getMw().showCard("One");
 	}
 	
 	public void goButtonActionListener(){
 		playerOptions();
-		mw.s4.setUpPlayers();
-		mw.showCard("Three");
+		getMw().s4.setUpPlayers();
+		getMw().showCard("Three");
 	}
 	
 	public void playerOptions(){
-		int m = 5;
-		if(opt1.isSelected() == true)
-		    m = 1;
-		else if(opt2.isSelected() == true)
-			m = 2;
-		else if(opt3.isSelected() == true)
-			m = 3;
-	    mw.s4.setMaxPlayers(m);
+		int m = PlayerOption();
+	    getMw().s4.setMaxPlayers(m);
 	}
+
+    public int PlayerOption() {
+        int m = 5;
+        if(getOpt1().isSelected() == true)
+            m = 1;
+        else if(getOpt2().isSelected() == true)
+            m = 2;
+        else if(getOpt3().isSelected() == true)
+            m = 3;
+        return m;
+    }
 	
 	public PlayerSelectScreen(MainWindow mw){
 		this.mw = mw;
@@ -104,6 +109,90 @@ public class PlayerSelectScreen extends JPanel {
 		add(quit);
 		
 	}
+
+    /**
+     * @return the go
+     */
+    public JButton getGo() {
+        return go;
+    }
+
+    /**
+     * @param go the go to set
+     */
+    public void setGo(JButton go) {
+        this.go = go;
+    }
+
+    /**
+     * @return the quit
+     */
+    public JButton getQuit() {
+        return quit;
+    }
+
+    /**
+     * @param quit the quit to set
+     */
+    public void setQuit(JButton quit) {
+        this.quit = quit;
+    }
+
+    /**
+     * @return the mw
+     */
+    public MainWindow getMw() {
+        return mw;
+    }
+
+    /**
+     * @param mw the mw to set
+     */
+    public void setMw(MainWindow mw) {
+        this.mw = mw;
+    }
+
+    /**
+     * @return the opt1
+     */
+    public JRadioButton getOpt1() {
+        return opt1;
+    }
+
+    /**
+     * @param opt1 the opt1 to set
+     */
+    public void setOpt1(JRadioButton opt1) {
+        this.opt1 = opt1;
+    }
+
+    /**
+     * @return the opt2
+     */
+    public JRadioButton getOpt2() {
+        return opt2;
+    }
+
+    /**
+     * @param opt2 the opt2 to set
+     */
+    public void setOpt2(JRadioButton opt2) {
+        this.opt2 = opt2;
+    }
+
+    /**
+     * @return the opt3
+     */
+    public JRadioButton getOpt3() {
+        return opt3;
+    }
+
+    /**
+     * @param opt3 the opt3 to set
+     */
+    public void setOpt3(JRadioButton opt3) {
+        this.opt3 = opt3;
+    }
 	
 
 }
