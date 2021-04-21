@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 public class BoardDrawing extends JPanel{
 
-	/**
+	/**Clase Boasrding
 	 * 
 	 */
 	int b = 0;
@@ -120,18 +120,18 @@ public class BoardDrawing extends JPanel{
 			
 		    //draw player position
 		    for(int pl = 0;pl < bs.maxPlayers;pl++)
-			if(bs.players.get(pl).returnPosition() == cellnos[i]){                         //only one player considered here
+			if(bs.players.get(pl).getPosition() == cellnos[i]){                         //only one player considered here
 				
-				g2d.setColor(bs.players.get(pl).returnPlayerColor());        //change to player color
+				g2d.setColor(bs.players.get(pl).getPlayerColor());        //change to player color
 				g2d.fillRect(cell.getLocation().x + pl*cellWidth/4, cell.getLocation().y, cellWidth/4, cellHeight/4);//change to player position
 				g2d.setColor(Color.blue);
 			}
 		    
             if(cellnos[i] == row*col-1){
             	for(int pl = 0;pl < bs.maxPlayers;pl++)
-        			if(bs.players.get(pl).returnPosition() >= cellnos[i]){                         //only one player considered here
+        			if(bs.players.get(pl).getPosition() >= cellnos[i]){                         //only one player considered here
         				
-        				g2d.setColor(bs.players.get(pl).returnPlayerColor());        //change to player color
+        				g2d.setColor(bs.players.get(pl).getPlayerColor());        //change to player color
         				g2d.fillRect(cell.getLocation().x + pl*cellWidth/4, cell.getLocation().y, cellWidth/4, cellHeight/4);//change to player position
         				g2d.setColor(Color.blue);
         			}   
@@ -191,7 +191,7 @@ public class BoardDrawing extends JPanel{
 	public String ensurePlayerPosition(int pnos){
 		String message = "";
 		for(Portal port :bs.portals){
-			if(bs.players.get(pnos).returnPosition() == port.returnStart()){
+			if(bs.players.get(pnos).getPosition() == port.returnStart()){
 				bs.players.get(pnos).setPosition(port.returnEnd());
 				if(port.returnNature() == 1)
 					message += "You are up through ladder at position " + port.returnStart();
