@@ -1,6 +1,9 @@
 import javax.swing.SwingUtilities;
 
-
+/**
+ *
+ * @author Denga
+ */
 public class Main {
 
 	/**

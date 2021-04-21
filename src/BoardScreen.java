@@ -1,16 +1,27 @@
 import java.awt.Color;
+import static java.awt.Color.blue;
+import static java.awt.Color.green;
+import static java.awt.Color.red;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.Random;
-
+import java.util.logging.Logger;
 import javax.swing.BoxLayout;
+import static javax.swing.BoxLayout.X_AXIS;
+import static javax.swing.BoxLayout.Y_AXIS;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.OK_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
 import javax.swing.JPanel;
 
-
+/**
+ *
+ * @author Denga
+ */
 public class BoardScreen extends JPanel{
 
 	/**
@@ -36,39 +47,68 @@ public class BoardScreen extends JPanel{
 	JButton go;
 	JButton quit;
 
-	public void quitButtonActionListener(){
-		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
-	        System.exit(0);
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
+		if(showConfirmDialog(this, "Are you sure?") == OK_OPTION) {
+                    exit(0);
+                }
 	}
 	
-	public void goButtonActionListener(){
+    /**
+     *
+     */
+    public void goButtonActionListener(){
 		mw.showCard("Two");
 		//mw.setBoard();
 		mw.resetAll();
 	}
 	
-	public void setMaxPlayers(int m){
+    /**
+     *
+     * @param m
+     */
+    public void setMaxPlayers(int m){
 		maxPlayers = m;
 	}
 	
-	public int returnMaxPlayers(){
+    /**
+     *
+     * @return
+     */
+    public int returnMaxPlayers(){
 		return maxPlayers;
 	}
 	
-	public void setUpPlayers(){
-		players = new ArrayList<Player>();
-		for(int i = 0;i < returnMaxPlayers();i++)
-		    players.add(new Player(i));
-		//get and add player(s) names
+    /**
+     *
+     */
+    public void setUpPlayers(){
+		players = new ArrayList<>();
+		for(int i = 0;i < returnMaxPlayers();i++) {
+                    players.add(new Player(i));
+                    //get and add player(s) names
+                }
 		
 		//manual color entry - automate later
-		if(0 < returnMaxPlayers())players.get(0).setPlayerColor(Color.green);
-		if(1 < returnMaxPlayers())players.get(1).setPlayerColor(Color.blue);
-		if(2 < returnMaxPlayers())players.get(2).setPlayerColor(Color.red);
+		if(0 < returnMaxPlayers()) {
+                    players.get(0).setPlayerColor(green);
+                }
+		if(1 < returnMaxPlayers()) {
+                    players.get(1).setPlayerColor(blue);
+                }
+		if(2 < returnMaxPlayers()) {
+                    players.get(2).setPlayerColor(red);
+                }
 		
 	}
  	
-	public BoardScreen(MainWindow mw){
+    /**
+     *
+     * @param mw
+     */
+    public BoardScreen(MainWindow mw){
 		this.mw = mw;
 		
 		currPlayer = 0;
@@ -76,25 +116,21 @@ public class BoardScreen extends JPanel{
 		go = new JButton("New Game");
 		quit = new JButton("Quit");	
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				goButtonActionListener();
-			}
-		});
+		go.addActionListener((ActionEvent event) -> {
+                    goButtonActionListener();
+        });
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				 quitButtonActionListener();
-			}
-		});
+		quit.addActionListener((ActionEvent event) -> {
+                    quitButtonActionListener();
+        });
 				
-		players = new ArrayList<Player>();
+		players = new ArrayList<>();
 		players.add(new Player(currPlayer));
 		//for(int i = 0;i < returnMaxPlayers();i++)
 		//    players.add(new Player(i));
 		//get and add player(s) names
 		
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(new BoxLayout(this, Y_AXIS));
 		
 		x = y = 8;
 		
@@ -112,7 +148,7 @@ public class BoardScreen extends JPanel{
 		 
 		
 	    stats = new JPanel();
-		stats.setLayout(new BoxLayout(stats, BoxLayout.X_AXIS));
+		stats.setLayout(new BoxLayout(stats, X_AXIS));
 		add(stats);
 		
 		stats.add(go);
@@ -125,7 +161,7 @@ public class BoardScreen extends JPanel{
 		//currPlayer = 0;
 		
 		whichPlayer = new JLabel();
-		whichPlayer.setText(players.get(currPlayer).returnName());
+		whichPlayer.setText(players.get(currPlayer).getName());
 		stats.add(whichPlayer);
 		
 		extraInfo = new JLabel();
@@ -136,40 +172,33 @@ public class BoardScreen extends JPanel{
 		//outside needs to know some amount of player data which may be got be asking and passing to inside
 		//no need to create separate stores outside
 		//may need more functions inside to communicate for this reason
+                
 		roll = new JButton("Roll the die!");
-		roll.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				Random die = new Random();
-				int a = die.nextInt(6) + 1;
-				dieResults.setText("You rolled a " + a);
-				player += a;
-				//bd.setPlayer(player);
-				bd.setPlayer(a, currPlayer);
-				//bd.ensurePlayerPosition();
-				extraInfo.setText(bd.ensurePlayerPosition(currPlayer));
-				bd.repaint();
-				
-				players.get(currPlayer).incPlayerScore(1);
-				
-				for(Player p: players){
-					if(p.returnPosition() >= x*y-1){
-						success.setText("And the winner is: " + p.returnName() + "\nYour score: " + p.returnPlayerScore());
-					    roll.setVisible(false);
-					}
-				}
-				
-				
-				
-				if(currPlayer == maxPlayers - 1)
-					currPlayer = 0;
-				else
-					currPlayer += 1;
-				
-				//currPlayer = players.size() - 1;
-				whichPlayer.setText(players.get(currPlayer).returnName());
-				
-			}
-		});
+		roll.addActionListener((ActionEvent e) -> {
+                    Random die = new Random();
+                    int a1 = die.nextInt(6) + 1;
+                    dieResults.setText("You rolled a " + a1);
+                    player += a1;
+            //bd.setPlayer(player);
+            bd.setPlayer(a1, currPlayer);
+            //bd.ensurePlayerPosition();
+            extraInfo.setText(bd.ensurePlayerPosition(currPlayer));
+            bd.repaint();
+            players.get(currPlayer).incPlayerScore(1);
+            players.stream().filter(p -> (p.getPosition() >= x*y-1)).map(p -> {
+                success.setText("And the winner is: " + p.getName() + "\nYour score: " + p.getPlayerScore());
+                return p;
+            }).forEachOrdered(_item -> {
+                roll.setVisible(false);
+            });
+            if(currPlayer == maxPlayers - 1) {
+                currPlayer = 0;
+            } else {
+                currPlayer += 1;
+            }
+            //currPlayer = players.size() - 1;
+            whichPlayer.setText(players.get(currPlayer).getName());
+        });
 		roll.setVisible(true);
           
 		stats.add(roll);
@@ -186,5 +215,6 @@ public class BoardScreen extends JPanel{
 		
 		
 	}
+    private static final Logger LOG = Logger.getLogger(BoardScreen.class.getName());
 	
 }
