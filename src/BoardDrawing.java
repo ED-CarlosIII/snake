@@ -111,7 +111,7 @@ public class BoardDrawing extends JPanel{
 			g2d.fill(cell);
 		}
 		
-		g2d.setColor(Color.BLUE);
+		pintaCeldaAzul(g2d);
 		for(Rectangle cell : cells){
 			g2d.draw(cell);
 		}
@@ -121,7 +121,7 @@ public class BoardDrawing extends JPanel{
 		
 		
 		
-		g2d.setColor(Color.BLUE);
+		pintaCeldaAzul(g2d);
 		int i=0;                                // i is our visible numbering 
 		for(Rectangle cell : cells){
 			
@@ -176,6 +176,10 @@ public class BoardDrawing extends JPanel{
 		}
 		
 	}
+
+    private void pintaCeldaAzul(Graphics2D g2d) {
+        g2d.setColor(Color.BLUE);
+    }
 	/*
 	public void ensurePlayerPosition(){
 		for(Portal port :portals){
@@ -184,6 +188,7 @@ public class BoardDrawing extends JPanel{
 		}
 	}
 	*/
+    //prueba
 	public String ensurePlayerPosition(int pnos){
 		String message = "";
 		for(Portal port :bs.portals){
