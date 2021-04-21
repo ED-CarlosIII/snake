@@ -10,6 +10,11 @@ import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
 
+/**
+ *
+ * @author Denga
+ */
+
 public class PlayerSelectScreen extends JPanel {
 	JButton go;
 	JButton quit;
@@ -19,17 +24,26 @@ public class PlayerSelectScreen extends JPanel {
 	JRadioButton opt2;
 	JRadioButton opt3;
 	
-	public void quitButtonActionListener(){
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
 		mw.showCard("One");
 	}
 	
-	public void goButtonActionListener(){
+    /**
+     *
+     */
+    public void goButtonActionListener(){
 		playerOptions();
 		mw.s4.setUpPlayers();
 		mw.showCard("Three");
 	}
 	
-	public void playerOptions(){
+    /**
+     *
+     */
+    public void playerOptions(){
 		int m = 5;
 		if(opt1.isSelected() == true)
 		    m = 1;
@@ -40,15 +54,21 @@ public class PlayerSelectScreen extends JPanel {
 	    mw.s4.setMaxPlayers(m);
 	}
 	
-	public PlayerSelectScreen(MainWindow mw){
+    /**
+     *
+     * @param mw
+     */
+    public PlayerSelectScreen(MainWindow mw){
 		this.mw = mw;
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
-		JLabel mess = new JLabel("Select Players: ");
+                String text1= "Players";
+                
+		JLabel mess = new JLabel("Select"+text1+": ");
 		add(mess);
 		
-		JLabel uc = new JLabel("Default: 1Player");
+		JLabel uc = new JLabel("Default: 1"+text1+"");
 		add(uc);
 		
 		//set up radio buttons
@@ -56,8 +76,8 @@ public class PlayerSelectScreen extends JPanel {
 		opt1 = new JRadioButton("1 Player(Default)");
 		opt1.setSelected(true);
 		
-		opt2 = new JRadioButton("2 Players");
-		opt3 = new JRadioButton("3 Players");
+		opt2 = new JRadioButton("2 "+text1+"");
+		opt3 = new JRadioButton("3 "+text1+"");
 		
 		ButtonGroup grp = new ButtonGroup();
 		grp.add(opt1);

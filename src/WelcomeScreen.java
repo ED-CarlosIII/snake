@@ -9,7 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ *
+ * @author Denga
+ */
 public class WelcomeScreen extends JPanel{
 	JLabel title;
 	JButton go;
@@ -17,20 +20,37 @@ public class WelcomeScreen extends JPanel{
 	
 	MainWindow mw;
 	
-	public void setTitle(String t){
+    /**
+     *
+     * @param t
+     */
+    public void setTitle(String t){
 		title.setText(t);
 	}
 	
-	public void quitButtonActionListener(){
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
 		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
 	        System.exit(0);
 	}
 	
-	public void goButtonActionListener(){
+    /**
+     *
+     */
+    public void goButtonActionListener(){
 		mw.showCard("Two");
 	}
  
-	public WelcomeScreen(MainWindow mw){
+        private static final String Newgame = "New Game";
+        private static final String Quit = "Quit";
+        
+    /**
+     *
+     * @param mw
+     */
+    public WelcomeScreen(MainWindow mw){
 		this.mw = mw;
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -39,16 +59,20 @@ public class WelcomeScreen extends JPanel{
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+                
+                
+		go = new JButton(Newgame);
+		quit = new JButton(Quit);	
 		
 		go.addActionListener(new ActionListener(){
+                        @Override
 			public void actionPerformed(ActionEvent event){
 				goButtonActionListener();
 			}
 		});
 		
 		quit.addActionListener(new ActionListener(){
+                        @Override
 			public void actionPerformed(ActionEvent event){
 				 quitButtonActionListener();
 			}
