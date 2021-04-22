@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
 public class BoardDrawing extends JPanel {
-    
+    //prueba
     /**
      *
      */
