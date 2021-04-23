@@ -10,11 +10,12 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+/**
+ * Define los colores que comprondrán el tablero de juego
+ * @author Chencho Marin
+ */
 public class BoardDrawing extends JPanel {
-   
-    /**
-     *
-     */
+
     int b = 0;
     int row = 8;
     int col = 8;
@@ -26,6 +27,13 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Es el constructor de un objeto que representa un tablero de juego
+     *
+     * @param row Representa las filas del tablero
+     * @param col Representa las columnas del tablero
+     * @param bs Representa el tablero de juego
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -65,6 +73,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Metodo utilizado para dar color al tablero de juego
+     * @param g Representa los objetos de la clase Graphics
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -80,6 +92,9 @@ public class BoardDrawing extends JPanel {
 		g.drawLine(0,0,sw, sh);
          */
         //Create cells
+        /**
+         * Utilizado para crear las celdas del tablero de juego
+         */
         int width = getWidth();
         int height = getHeight();
 
@@ -114,6 +129,9 @@ public class BoardDrawing extends JPanel {
 
         //Draw cells and numbers
         //may have to modify program based on number of players
+        /**
+         * Utilizado para dar color azul a las celdas y a los numeros
+         */
         pintaCeldaAzul(g2d);
         int i = 0;                                // i is our visible numbering 
         for (Rectangle cell : cells) {
@@ -171,7 +189,14 @@ public class BoardDrawing extends JPanel {
         }
 
     }
-
+/**
+ * Metodo utilizado para cambiar el color del jugador
+ * @param g2d Representa un grafico en 2D
+ * @param pl
+ * @param cell Representa una celda
+ * @param cellWidth Representa el alto de una celda
+ * @param cellHeight Representa el ancho de una celda
+ */
     private void cambiaColorJugador(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
         //only one player considered here
 
@@ -179,7 +204,10 @@ public class BoardDrawing extends JPanel {
         g2d.fillRect(cell.getLocation().x + pl * cellWidth / 4, cell.getLocation().y, cellWidth / 4, cellHeight / 4);//change to player position
         g2d.setColor(Color.blue);
     }
-
+/**
+ * Metodo utilizado para pintar las celdas de azul
+ * @param g2d Representa un grafico en 2D
+ */
     private void pintaCeldaAzul(Graphics2D g2d) {
         g2d.setColor(Color.BLUE);
     }
@@ -192,7 +220,12 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
-    //prueba
+    
+    /**
+     * Metodo utilizado para asegurar la posicion del jugador
+     * @param pnos Representa la posicion en valor entero del jugador
+     * @return devuelve un mensaje
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -212,6 +245,11 @@ public class BoardDrawing extends JPanel {
 	public void setPlayer(int a){
 		player = a;
 	}
+     */
+    /**
+     * 
+     * @param a
+     * @param pnos 
      */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
