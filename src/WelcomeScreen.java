@@ -16,6 +16,11 @@ public class WelcomeScreen extends JPanel{
 	JButton quit;
 	
 	MainWindow mw;
+        
+        /*Extracciones a una constante que veas necesarias en el método
+        WelcomeScreen*/
+        private static final String NEW_GAME = "New Game";
+        private static final String QUIT = "Quit";
 	
 	public void setTitle(String t){
 		title.setText(t);
@@ -39,8 +44,8 @@ public class WelcomeScreen extends JPanel{
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+		go = new JButton(NEW_GAME);
+		quit = new JButton(QUIT);	
 		
 		go.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
