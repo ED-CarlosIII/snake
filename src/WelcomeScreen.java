@@ -7,6 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author Antonio José Martínez González
+ */
 public class WelcomeScreen extends JPanel {
     // Extraccion de una CONSTANTE  ejercicio refactorizacion
     private static final String NGAME = "New Game";
@@ -17,6 +21,11 @@ public class WelcomeScreen extends JPanel {
     JButton quit;
 
     MainWindow mw;
+
+    /**
+     *
+     * @param mw
+     */
     public WelcomeScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -44,16 +53,26 @@ public class WelcomeScreen extends JPanel {
         add(quit);
     }
 
+    /**
+     *
+     * @param t
+     */
     public void setTitle(String t) {
         title.setText(t);
     }
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         mw.showCard("Two");
     }

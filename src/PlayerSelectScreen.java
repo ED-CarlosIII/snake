@@ -9,6 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
+
+/**
+ *
+ * @author Antonio José Martínez González
+ */
 public class PlayerSelectScreen extends JPanel {
 
     JButton go;
@@ -18,6 +23,11 @@ public class PlayerSelectScreen extends JPanel {
     JRadioButton opt1;
     JRadioButton opt2;
     JRadioButton opt3;
+
+    /**
+     *
+     * @param mw
+     */
     public PlayerSelectScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -87,16 +97,25 @@ public class PlayerSelectScreen extends JPanel {
         
     }
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         mw.showCard("One");
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         playerOptions();
         mw.s4.setUpPlayers();
         mw.showCard("Three");
     }
 
+    /**
+     *
+     */
     public void playerOptions() {
         int m = 5;
         if (opt1.isSelected() == true) {

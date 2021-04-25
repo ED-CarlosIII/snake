@@ -1,6 +1,10 @@
 
 import javax.swing.SwingUtilities;
 
+/**
+ *
+ * @author Antonio José Martínez González
+ */
 public class Main {
 
     /**

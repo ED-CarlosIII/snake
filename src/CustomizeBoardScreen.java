@@ -7,11 +7,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 //needs massive improvements
+
+/**
+ *
+ * @author Antonio José Martínez González
+ */
 public class CustomizeBoardScreen extends JPanel {
 
     JButton go;
     JButton quit;
     MainWindow mw;
+
+    /**
+     *
+     * @param mw
+     */
     public CustomizeBoardScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -42,10 +52,16 @@ public class CustomizeBoardScreen extends JPanel {
         
     }
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         mw.showCard("Two");
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         mw.showCard("Four");
     }
