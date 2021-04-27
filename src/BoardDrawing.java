@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author Irene Jiménez Rubio
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     *
+     * @param row corresponde al numero de la fila
+     * @param col corresponde al numero de la columna
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -203,6 +214,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     *
+     * @param pnos Garantiza la posicion, en este caso 0.
+     * @return Muestra el mensje correspondiente, depende de si es -1 o 1.
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -223,6 +241,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     *
+     * @param a Posicion del jugador
+     * @param pnos Muestra desde el numero.
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
