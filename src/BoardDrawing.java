@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author jorge Otero cameans
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Contructor de la clase dibuja un tablero
+     * @param row nº de fila
+     * @param col nº de columna
+     * @param bs   objeto de la clase Tablero
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -64,7 +75,11 @@ public class BoardDrawing extends JPanel {
         }
 
     }
-
+    
+  /**
+   * metodo que dibuja un componente
+   * @param g objeto de la clase Graphics
+   */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -97,6 +112,7 @@ public class BoardDrawing extends JPanel {
         dibujaSnakesYLadders(g2d);
 
     }
+ 
 
     private void creaCeldas(int xOffset, int cellWidth, int yOffset, int cellHeight, Graphics2D g2d) {
         if (cells.isEmpty()) {
@@ -122,7 +138,7 @@ public class BoardDrawing extends JPanel {
             g2d.draw(cell);
         }
     }
-
+  
     private void dibujaCeldasYNumeros(Graphics2D g2d, int cellWidth, int cellHeight) {
         g2d.setColor(Color.BLUE);
         int i = 0;                                // i is our visible numbering
@@ -199,6 +215,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * metodo que comprueba la casilla del jugador
+     * @param pnos indica el numero de casilla donde se encuentra
+     * @return mensaje cuando se encuentra una escalera o una serpiente
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -219,6 +242,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * metodo que coloca al jugador en el tablero
+     * @param a  entero que indica la nueva posicion
+     * @param pnos entero que indica el numero de casilla donde se encuentra
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
