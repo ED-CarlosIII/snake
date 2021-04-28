@@ -10,10 +10,16 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author KurroSalas
+ * @version 28/04/2021
+ */
 public class BoardDrawing extends JPanel {
 
     /**
-     *
+     * 
      */
     int b = 0;
     int row = 8;
@@ -26,6 +32,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     *
+     * @param row
+     * @param col
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -65,6 +77,7 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -155,6 +168,11 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     *
+     * @param port
+     * @param g2d
+     */
     public void DrawingSnakes(Portal port, Graphics2D g2d) {
         if (port.returnNature() == -1) {
             g2d.setColor(Color.red);
@@ -163,6 +181,14 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     *
+     * @param g2d
+     * @param pl
+     * @param cell
+     * @param cellWidth
+     * @param cellHeight
+     */
     public void DrawPlayer(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
         //only one player considered here
 
@@ -171,12 +197,25 @@ public class BoardDrawing extends JPanel {
         g2d.setColor(Color.blue);
     }
 
+    /**
+     *
+     * @param i
+     * @param g2d
+     * @param cell
+     */
     public void DrawCells(int i, Graphics2D g2d, Rectangle cell) {
         String message = "" + cellnos[i];
         g2d.drawString(message, (int) cell.getCenterX(), (int) cell.getCenterY());
         //g2d.setColor(Color.red);
     }
 
+    /**
+     *
+     * @param xOffset
+     * @param cellWidth
+     * @param yOffset
+     * @param cellHeight
+     */
     public void CreateCells(int xOffset, int cellWidth, int yOffset, int cellHeight) {
         if (cells.isEmpty()) {
             for (int i = 0; i < row; i++) {
@@ -200,6 +239,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     *
+     * @param pnos
+     * @return message
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -220,6 +266,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     *
+     * @param a
+     * @param pnos
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }

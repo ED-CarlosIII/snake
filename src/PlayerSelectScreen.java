@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
+
+/**
+ *
+ * @author alumno
+ */
 public class PlayerSelectScreen extends JPanel {
 
     JButton go;
@@ -20,16 +25,25 @@ public class PlayerSelectScreen extends JPanel {
     JRadioButton opt2;
     JRadioButton opt3;
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         mw.showCard("One");
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         playerOptions();
         mw.s4.setUpPlayers();
         mw.showCard("Three");
     }
 
+    /**
+     *
+     */
     public void playerOptions() {
         int m = 5;
         if (opt1.isSelected() == true) {
@@ -42,6 +56,10 @@ public class PlayerSelectScreen extends JPanel {
         mw.s4.setMaxPlayers(m);
     }
 
+    /**
+     *
+     * @param mw
+     */
     public PlayerSelectScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -91,6 +109,10 @@ public class PlayerSelectScreen extends JPanel {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public ActionListener Quit() {
         ActionListener actionListenerQuit = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -100,6 +122,10 @@ public class PlayerSelectScreen extends JPanel {
         return actionListenerQuit;
     }
 
+    /**
+     *
+     * @return
+     */
     public ActionListener Go() {
         ActionListener actionListenerGo = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -109,6 +135,10 @@ public class PlayerSelectScreen extends JPanel {
         return actionListenerGo;
     }
 
+    /**
+     *
+     * @return
+     */
     public ActionListener PlayerOptions() {
         ActionListener actionListenerOp = new ActionListener() {
             public void actionPerformed(ActionEvent event) {

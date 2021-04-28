@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author alumno
+ */
 public class BoardScreen extends JPanel {
 
     /**
@@ -37,26 +41,43 @@ public class BoardScreen extends JPanel {
     JButton go;
     JButton quit;
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         mw.showCard("Two");
 
         mw.resetAll();
     }
 
+    /**
+     *
+     * @param m
+     */
     public void setMaxPlayers(int m) {
         maxPlayers = m;
     }
 
+    /**
+     *
+     * @return
+     */
     public int returnMaxPlayers() {
         return maxPlayers;
     }
 
+    /**
+     *
+     */
     public void setUpPlayers() {
         players = new ArrayList<>();
         for (int i = 0; i < returnMaxPlayers(); i++) {
@@ -77,6 +98,10 @@ public class BoardScreen extends JPanel {
 
     }
 
+    /**
+     *
+     * @param mw
+     */
     public BoardScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -143,6 +168,10 @@ public class BoardScreen extends JPanel {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public ActionListener Roll() {
         ActionListener RollactionListener = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -177,6 +206,10 @@ public class BoardScreen extends JPanel {
         return RollactionListener;
     }
 
+    /**
+     *
+     * @return
+     */
     public ActionListener Quit() {
         ActionListener QuitactionListener = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -186,6 +219,10 @@ public class BoardScreen extends JPanel {
         return QuitactionListener;
     }
 
+    /**
+     *
+     * @return
+     */
     public ActionListener Go() {
         ActionListener GoactionListener = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
