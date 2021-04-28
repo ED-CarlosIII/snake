@@ -3,25 +3,41 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import static javax.swing.BoxLayout.PAGE_AXIS;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 //needs massive improvements
+
+/**
+ *
+ * @author alumno
+ */
 public class CustomizeBoardScreen extends JPanel {
 
     JButton go;
     JButton quit;
     MainWindow mw;
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         mw.showCard("Two");
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         mw.showCard("Four");
     }
 
+    /**
+     *
+     * @param mw otra main window
+     */
     public CustomizeBoardScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -31,20 +47,16 @@ public class CustomizeBoardScreen extends JPanel {
         JLabel uc = new JLabel("Default: 8x8 board with 8 randomly generated snakes/ladders");
         add(uc);
 
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setLayout(new BoxLayout(this, PAGE_AXIS));
         go = new JButton("Start Game");
         quit = new JButton("Back");
 
-        go.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                goButtonActionListener();
-            }
+        go.addActionListener((ActionEvent event) -> {
+            goButtonActionListener();
         });
 
-        quit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                quitButtonActionListener();
-            }
+        quit.addActionListener((ActionEvent event) -> {
+            quitButtonActionListener();
         });
 
         add(go);
