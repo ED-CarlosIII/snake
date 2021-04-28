@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 public class BoardDrawing extends JPanel{
 
-	/**Clase Boasrding
+	/**Clase BoarDrawing definimos las variables
 	 * 
 	 */
 	int b = 0;
