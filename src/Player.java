@@ -2,47 +2,47 @@ import java.awt.Color;
 
 
 public class Player {
-	private String name;
-	private int playerPosn;
-	private int playerScore;
-	private Color playerColor;
+    private String name;
+    private int playerPosn;
+    private int playerScore;
+    private Color playerColor;
 	
 	public Player(int no){
 	    name = "Player " + no;
 	    playerPosn = 0;
 	}
 	
-	public int returnPosition(){
-		return playerPosn;
+	public int getPosition(){
+	    return playerPosn;
 	}
 	
 
-	public String returnName(){
-		return name;
+	public String getName(){
+	    return name;
 	}
 	
 	public void setPosition(int posn){
-		playerPosn = posn;
+	    playerPosn = posn;
 	}
 	
 	public void incPosition(int posn){
-		playerPosn += posn;
+	    playerPosn += posn;
 	}
 	
 	public void setPlayerColor(Color c){
-		playerColor = c;
+	    playerColor = c;
 	}
 	
-	public Color returnPlayerColor(){
-		return playerColor;
+	public Color getPlayerColor(){
+	    return playerColor;
 	}
 	
 	public void incPlayerScore(int a){
-		playerScore += a;
+	    playerScore += a;
 	}
 	
-	public int returnPlayerScore(){
-		return playerScore;
+	public int getPlayerScore(){
+	    return playerScore;
 	}
 
 }

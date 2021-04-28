@@ -11,51 +11,53 @@ import javax.swing.JPanel;
 
 
 public class WelcomeScreen extends JPanel{
-	JLabel title;
-	JButton go;
-	JButton quit;
+    JLabel title;
+    JButton go;
+    JButton quit;
 	
-	MainWindow mw;
+    MainWindow mw;
 	
 	public void setTitle(String t){
-		title.setText(t);
+	    title.setText(t);
 	}
 	
 	public void quitButtonActionListener(){
-		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
-	        System.exit(0);
+	    if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
+	    System.exit(0);
 	}
 	
 	public void goButtonActionListener(){
-		mw.showCard("Two");
+	    mw.showCard("Two");
 	}
  
 	public WelcomeScreen(MainWindow mw){
-		this.mw = mw;
+	    this.mw = mw;
 		
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		title = new JLabel();
-		add(title);
+	    setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+	    title = new JLabel();
+	    add(title);
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+	    go = new JButton(NEW__GAME);
+	    quit = new JButton(QUIT);	
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				goButtonActionListener();
-			}
+	    go.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent event){
+		    goButtonActionListener();
+		}
 		});
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				 quitButtonActionListener();
-			}
+	    quit.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent event){
+		    quitButtonActionListener();
+		}
 		});
 		
-		add(go);
-		add(quit);
+	    add(go);
+	    add(quit);
 	}
+    private static final String QUIT = "Quit";
+    private static final String NEW__GAME = "New Game";
 
 }
