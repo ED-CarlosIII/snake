@@ -10,11 +10,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ * Clase que crea la pantalla del tablero para jugar
+ * @author 34602
+ */
 public class BoardScreen extends JPanel{
 
 	/**
-	 * 
+	 * Atributos necesarios en la clase BoardScreen
 	 */
 	int player = 0;
 	BoardDrawing bd; 
@@ -35,26 +38,38 @@ public class BoardScreen extends JPanel{
 	
 	JButton go;
 	JButton quit;
-
+    /**
+     * Método correspondiente al botón salir del juego
+     */
     public void quitButtonActionListener(){
 	if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
 	System.exit(0);
     }
-	
+    /**
+     * Método correspondiente al botón de inicio de la pantalla principal
+     */	
     public void goButtonActionListener(){
 	mw.showCard("Two");
 		//mw.setBoard();
 	mw.resetAll();
     }
-	
+    /**
+     * Establece el número máximo de jugadores que van a jugar
+     * @param m Número máximo de jugadores que van a jugar
+     */	
     public void setMaxPlayers(int m){
 	maxPlayers = m;
     }
-	
+    /**
+     * Método que debuelve el número máximo de jugadores que van a jugar
+     * @return Un número entero correspondiente al número máximo de jugadores que juegan
+     */	
     public int returnMaxPlayers(){
 	return maxPlayers;
     }
-	
+    /**
+     * Método encargado de configuar los jugadores
+     */
     public void setUpPlayers(){
 	players = new ArrayList<Player>();
 	for(int i = 0;i < returnMaxPlayers();i++)
@@ -67,7 +82,10 @@ public class BoardScreen extends JPanel{
 	    if(2 < returnMaxPlayers())players.get(2).setPlayerColor(Color.red);
 		
     }
- 	
+    /**
+     * Método que crea la pantalla principal del tablero
+     * @param mw Pantalla principal sobre la que se crea el tablero
+     */	
     public BoardScreen(MainWindow mw){
 	this.mw = mw;
             int name = 0;
@@ -121,7 +139,9 @@ public class BoardScreen extends JPanel{
 	stats.add(success);
 	
 	}
-
+    /**
+     * Método encargado de tirar los dados para seguir jugando
+     */
     private void tirarDados() {
         //modify action listener to move between the n players
         //outside needs to know some amount of player data which may be got be asking and passing to inside
@@ -162,7 +182,9 @@ public class BoardScreen extends JPanel{
             }
         });
     }
-
+    /**
+     * Método encargado de asignar las estadísticas de los jugadores
+     */
     private void asignarEstadisticas() {
         //String playername = "Player 1";
         
@@ -176,7 +198,9 @@ public class BoardScreen extends JPanel{
         
         success = new JLabel("");
     }
-
+    /**
+     * Método encargado de crear las estadísticas
+     */
     private void crearEstadisticas() {
         stats = new JPanel();
         stats.setLayout(new BoxLayout(stats, BoxLayout.X_AXIS));
@@ -185,7 +209,9 @@ public class BoardScreen extends JPanel{
         stats.add(go);
         stats.add(quit);
     }
-
+    /**
+     * Método encargado de dibujar el tablero
+     */
     private void dibujarTablero() {
         bd = new BoardDrawing(x, y,this);
         bd.setVisible(true);

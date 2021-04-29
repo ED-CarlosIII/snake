@@ -9,8 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
-
+/**
+ * Clase encargada de la pantalla de selección de jugador
+ * @author 34602
+ */
 public class PlayerSelectScreen extends JPanel {
+    /**
+     * Atributos de la clase
+     */
     JButton go;
     JButton quit;
     MainWindow mw;
@@ -18,17 +24,23 @@ public class PlayerSelectScreen extends JPanel {
     JRadioButton opt1;
     JRadioButton opt2;
     JRadioButton opt3;
-	
+	/**
+         * Método encargado del botón de salir
+         */
 	public void quitButtonActionListener(){
 	    mw.showCard("One");
 	}
-	
+	/**
+         * Método encargado del botón de ir
+         */
 	public void goButtonActionListener(){
 	    playerOptions();
 	    mw.s4.setUpPlayers();
 	    mw.showCard("Three");
 	}
-	
+	/**
+         * Método encargado de las opciones de jugador
+         */
 	public void playerOptions(){
 	    int m = 5;
 	    if(opt1.isSelected() == true)
@@ -39,7 +51,10 @@ public class PlayerSelectScreen extends JPanel {
 		m = 3;
 	    mw.s4.setMaxPlayers(m);
 	}
-	
+	/**
+         * Método encargado de la pantalla de selección del jugador
+         * @param mw Pantalla princial sobre la que se selecciona al jugador
+         */
 	public PlayerSelectScreen(MainWindow mw){
 	    this.mw = mw;
 		

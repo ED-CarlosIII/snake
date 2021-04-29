@@ -8,7 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ * Clase encargada de la ventana principal del progama
+ * @author 34602
+ */
 public class MainWindow extends JFrame{
 	
     JPanel cards;
@@ -19,11 +22,16 @@ public class MainWindow extends JFrame{
     PlayerSelectScreen s2;
     CustomizeBoardScreen s3;
     BoardScreen s4;
-	
+	/**
+         * Método que muesta la tarjeta del juego
+         * @param cardName Guarda el nombre de la tarjeta del juego
+         */
 	public void showCard(String cardName){
 	   cl.show(cards, cardName);
 	}
-	
+	/**
+         * Método que resetea los diseños de las tarjetas
+         */
 	public void resetAll(){
 	    s1 = new WelcomeScreen(this);
 	    s2 = new PlayerSelectScreen(this);
@@ -37,11 +45,16 @@ public class MainWindow extends JFrame{
 	}
 	
 	//maintaining board info
-	public void setBoard(){
+	/**
+         * Método que establece el tablero
+         */
+        public void setBoard(){
 	    s4 = new BoardScreen(this);
 	    cards.add(s4, "Four");
 	}
-	
+	/**
+         * Método que crea la ventana principal del juego
+         */
 	public MainWindow(){
 		
 	    setVisible(true);

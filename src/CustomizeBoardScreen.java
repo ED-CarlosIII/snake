@@ -8,21 +8,31 @@ import javax.swing.JPanel;
 
 
 //needs massive improvements
-
+/**
+ * Clase encargada de personalizar la pantalla del tablero
+ * @author 34602
+ */
 public class CustomizeBoardScreen extends JPanel {
     JButton go;
     JButton quit;
     MainWindow mw;
 	
-
+    /**
+     * Método referente al botón de salir
+     */
     public void quitButtonActionListener(){
 	mw.showCard("Two");
     }
-	
+    /**
+     * Método referente al botón de ir
+     */	
     public void goButtonActionListener(){
 	mw.showCard("Four");
     }
-  
+    /**
+     * Método encargado de personalizar la pantalla del tablero
+     * @param mw Pantalla principal sobre la que se ha creado el tablero
+     */
     public CustomizeBoardScreen(MainWindow mw){
 	this.mw = mw;
 	    
