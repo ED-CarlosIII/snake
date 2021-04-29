@@ -1,10 +1,14 @@
 
 import javax.swing.SwingUtilities;
 
+/**
+ *
+ * @author mac
+ */
 public class Main {
 
     /**
-     * @param args
+     * @param args main
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
