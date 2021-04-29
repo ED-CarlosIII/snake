@@ -39,23 +39,23 @@ public class WelcomeScreen extends JPanel{
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+		go = new JButton(NEW_GAME);
+		quit = new JButton(QUIT1);	
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				goButtonActionListener();
-			}
-		});
+		ActionListener go1 = (ActionEvent event) -> {
+                    goButtonActionListener();
+                };
+                go.addActionListener(go1);
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				 quitButtonActionListener();
-			}
-		});
+		ActionListener quit1 = (ActionEvent event) -> {
+                    quitButtonActionListener();
+                };
+                quit.addActionListener(quit1);
 		
 		add(go);
 		add(quit);
 	}
+    protected static final String QUIT1 = "Quit";
+    protected static final String NEW_GAME = "New Game";
 
 }

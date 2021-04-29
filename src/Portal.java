@@ -3,7 +3,7 @@ import java.util.Random;
 
 
 public class Portal {
-	private int nature; //-1 for snake , +1 for ladder
+    private int nature; //-1 for snake , +1 for ladder
     private int start;
     private int end;
     
