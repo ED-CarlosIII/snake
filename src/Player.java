@@ -1,48 +1,88 @@
+
 import java.awt.Color;
 
-
+/**
+ *
+ * @author mac
+ */
 public class Player {
-	private String name;
-	private int playerPosn;
-	private int playerScore;
-	private Color playerColor;
-	
-	public Player(int no){
-	    name = "Player " + no;
-	    playerPosn = 0;
-	}
-	
-	public int returnPosition(){
-		return playerPosn;
-	}
-	
 
-	public String returnName(){
-		return name;
-	}
-	
-	public void setPosition(int posn){
-		playerPosn = posn;
-	}
-	
-	public void incPosition(int posn){
-		playerPosn += posn;
-	}
-	
-	public void setPlayerColor(Color c){
-		playerColor = c;
-	}
-	
-	public Color returnPlayerColor(){
-		return playerColor;
-	}
-	
-	public void incPlayerScore(int a){
-		playerScore += a;
-	}
-	
-	public int returnPlayerScore(){
-		return playerScore;
-	}
+    private String name;
+    private int playerPosn;
+    private int playerScore;
+    private Color playerColor;
+
+    /**
+     *
+     * @param no parametro
+     */
+    public Player(int no) {
+        name = "Player " + no;
+        playerPosn = 0;
+    }
+
+    /**
+     *
+     * @return Integer
+     */
+    public int getPosition() {
+        return playerPosn;
+    }
+
+    /**
+     *
+     * @return Integer
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param posn parametro
+     */
+    public void setPosition(int posn) {
+        playerPosn = posn;
+    }
+
+    /**
+     *
+     * @param posn parametro
+     */
+    public void incPosition(int posn) {
+        playerPosn += posn;
+    }
+
+    /**
+     *
+     * @param c parametro
+     */
+    public void setPlayerColor(Color c) {
+        playerColor = c;
+    }
+
+    /**
+     *
+     * @return Color
+     */
+    public Color getPlayerColor() {
+        return playerColor;
+    }
+
+    /**
+     *
+     * @param a parametro
+     */
+    public void incPlayerScore(int a) {
+        playerScore += a;
+    }
+
+    /**
+     *
+     * @return Integer
+     */
+    public int getPlayerScore() {
+        return playerScore;
+    }
 
 }
