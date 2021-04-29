@@ -12,10 +12,7 @@ public class Portal {
     private int start;
     private int end;
 
-    /**
-     *
-     * @param i
-     */
+   
     public Portal(int maxCells) {   //creates random portals
         Random luck = new Random();
         start = luck.nextInt(maxCells);

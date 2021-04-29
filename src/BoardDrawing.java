@@ -3,22 +3,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
-//note: board does not change dynamically 
-//note: board shape and window aesthetics to be set
-//note: unification of colors not done
 /**
  * Define las variables para crear un tablero
- *
  * @author alumno
  */
 public class BoardDrawing extends JPanel {
 
-    /**
-     *
-     */
     int b = 0;
     int row = 8;
     int col = 8;
@@ -28,15 +20,13 @@ public class BoardDrawing extends JPanel {
     BoardScreen bs;
 
     /**
+     * 
      * Constructor del tablero
-     *
      * @param row
      * @param col
-     * @param bs
      */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
-
         this.row = row;
         this.col = col;
 
@@ -70,6 +60,7 @@ public class BoardDrawing extends JPanel {
 
     /**
      * Constructor del gráfico 2d de los jugadores y posición
+     *
      * @param g
      */
     public void paintComponent(Graphics g) {
@@ -104,7 +95,8 @@ public class BoardDrawing extends JPanel {
     }
 
     /**
-     *Constructor de las serpiente y escaleras en el tablero
+     * Constructor de las serpiente y escaleras en el tablero
+     *
      * @param g2d
      */
     public void drawSnakes(Graphics2D g2d) {
@@ -139,6 +131,7 @@ public class BoardDrawing extends JPanel {
 
     /**
      * Constructor de las celdas en el tablero por donde van a ir los jugadores
+     *
      * @param xOffset
      * @param cellWidth
      * @param yOffset
@@ -161,6 +154,7 @@ public class BoardDrawing extends JPanel {
 
     /**
      * Constructor del diseño de las celdas para el tablero
+     *
      * @param g2d
      * @param cellWidth
      * @param cellHeight
@@ -196,8 +190,9 @@ public class BoardDrawing extends JPanel {
         }
     }
 
-     /**
+    /**
      * Constructor de Posicion del jugador en el tablero
+     *
      * @param pnos
      * @return posicion del jugador
      */
@@ -216,7 +211,6 @@ public class BoardDrawing extends JPanel {
         return message;
     }
 
-    
     /**
      *
      * @param a

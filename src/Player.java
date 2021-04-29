@@ -12,10 +12,7 @@ public class Player {
     private int playerScore;
     private Color playerColor;
 
-    /**
-     *
-     * @param i
-     */
+    
     public Player(int no) {
         name = "Player " + no;
         playerPosn = 0;
