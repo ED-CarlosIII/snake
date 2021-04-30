@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import static javax.swing.BoxLayout.PAGE_AXIS;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -10,6 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
+
+/**
+ *
+ * @author alumno
+ */
 public class PlayerSelectScreen extends JPanel {
 
     JButton go;
@@ -20,16 +26,25 @@ public class PlayerSelectScreen extends JPanel {
     JRadioButton opt2;
     JRadioButton opt3;
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         mw.showCard("One");
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         playerOptions();
         mw.s4.setUpPlayers();
         mw.showCard("Three");
     }
 
+    /**
+     *
+     */
     public void playerOptions() {
         int m = 5;
         if (opt1.isSelected() == true) {
@@ -42,6 +57,10 @@ public class PlayerSelectScreen extends JPanel {
         mw.s4.setMaxPlayers(m);
     }
 
+    /**
+     *
+     * @param mw
+     */
     public PlayerSelectScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -49,7 +68,7 @@ public class PlayerSelectScreen extends JPanel {
         String player2 = "2 players";
         String player3 = "3 players";
 
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setLayout(new BoxLayout(this, PAGE_AXIS));
 
         JLabel mess = new JLabel("Select players: ");
         add(mess);
@@ -74,36 +93,26 @@ public class PlayerSelectScreen extends JPanel {
         add(opt2);
         add(opt3);
 
-        opt1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                playerOptions();
-            }
+        opt1.addActionListener((ActionEvent event) -> {
+            playerOptions();
         });
-        opt2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                playerOptions();
-            }
+        opt2.addActionListener((ActionEvent event) -> {
+            playerOptions();
         });
 
-        opt3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                playerOptions();
-            }
+        opt3.addActionListener((ActionEvent event) -> {
+            playerOptions();
         });
 
         go = new JButton("Customize Board");
         quit = new JButton("Back");
 
-        go.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                goButtonActionListener();
-            }
+        go.addActionListener((ActionEvent event) -> {
+            goButtonActionListener();
         });
 
-        quit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                quitButtonActionListener();
-            }
+        quit.addActionListener((ActionEvent event) -> {
+            quitButtonActionListener();
         });
 
         add(go);

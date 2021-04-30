@@ -1,5 +1,10 @@
 
 import java.awt.Color;
+import static java.awt.Color.BLUE;
+import static java.awt.Color.blue;
+import static java.awt.Color.green;
+import static java.awt.Color.red;
+import static java.awt.Color.white;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -10,6 +15,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author Juan Manuel
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +36,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     *
+     * @param row
+     * @param col
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -37,7 +53,7 @@ public class BoardDrawing extends JPanel {
         //    bs.players.add(new Player(i));
         //get and add player(s) names
 
-        cells = new ArrayList<Rectangle>();
+        cells = new ArrayList<>();
 
         cellnos = new int[row * col];
         for (int i = 0; i < row; i++) {
@@ -57,7 +73,7 @@ public class BoardDrawing extends JPanel {
         }
 
         int noPorts = 8;
-        bs.portals = new ArrayList<Portal>(noPorts);
+        bs.portals = new ArrayList<>(noPorts);
         for (int i = 0; i < noPorts; i++) {
             Portal temp = new Portal(row * col);
             bs.portals.add(temp);
@@ -102,7 +118,7 @@ public class BoardDrawing extends JPanel {
             }
         }
 
-        g2d.setColor(Color.white);
+        g2d.setColor(white);
         for (Rectangle cell : cells) {
             g2d.fill(cell);
         }
@@ -145,9 +161,9 @@ public class BoardDrawing extends JPanel {
         //Drawing snakes and ladders
         for (Portal port : bs.portals) {
             if (port.returnNature() == -1) {
-                g2d.setColor(Color.red);
+                g2d.setColor(red);
             } else {
-                g2d.setColor(Color.green);
+                g2d.setColor(green);
             }
 
             int ind;
@@ -177,11 +193,11 @@ public class BoardDrawing extends JPanel {
 
         g2d.setColor(bs.players.get(pl).getPlayerColor());        //change to player color
         g2d.fillRect(cell.getLocation().x + pl * cellWidth / 4, cell.getLocation().y, cellWidth / 4, cellHeight / 4);//change to player position
-        g2d.setColor(Color.blue);
+        g2d.setColor(blue);
     }
 
     private void colorCelda(Graphics2D g2d) {
-        g2d.setColor(Color.BLUE);
+        g2d.setColor(BLUE);
     }
 
     /*
@@ -192,6 +208,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     *
+     * @param pnos
+     * @return
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -212,6 +235,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     *
+     * @param a
+     * @param pnos
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
