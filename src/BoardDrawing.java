@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author alumno
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     *
+     * @param i
+     * @param i1
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -65,6 +76,11 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Constructor del gráfico 2d
+     *
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -120,6 +136,11 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Constructor de la serpiente y de la escalera en el tablero
+     *
+     * @param g2d
+     */
     private void drawSnakesLadders(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.portals) {
@@ -150,6 +171,14 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+     /**
+     * Constructor de las celdas en el tablero
+     *
+     * @param xOffset
+     * @param cellWidth
+     * @param yOffset
+     * @param cellHeight
+     */
     private void drawCellsNumbers(Graphics2D g2d, int cellWidth, int cellHeight) {
         g2d.setColor(Color.BLUE);
         int i = 0;                                // i is our visible numbering
@@ -191,6 +220,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     *
+     * @param pnos
+     * @return
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -211,6 +247,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     *
+     * @param a
+     * @param pnos
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
