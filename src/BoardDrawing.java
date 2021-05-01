@@ -10,10 +10,15 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+/**
+ * MI NOMBRE:
+ *
+ * @author Miguel Díaz
+ */
 public class BoardDrawing extends JPanel {
 
     /**
-     *
+     * CLASE BOARDDRAWING, DIBUJA LOS ELEMENTOS EN PANTALLA
      */
     int b = 0;
     int row = 8;
@@ -26,6 +31,13 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Parametros usados:
+     *
+     * @param i
+     * @param i1
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -205,6 +217,11 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+    /**
+     *
+     * @param pnos
+     * @return
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -224,6 +241,12 @@ public class BoardDrawing extends JPanel {
 	public void setPlayer(int a){
 		player = a;
 	}
+     */
+    /**
+     * PARAMETROS PARA SELECCIONARR JUGADOR:
+     * 
+     * @param a
+     * @param pnos
      */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
