@@ -8,23 +8,59 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ *
+ * @author Ruben
+ */
 public class MainWindow extends JFrame{
 	
-	JPanel cards;
-	String cardDisplayed;
-	CardLayout cl;
+    /**
+     *
+     */
+    JPanel cards;
+
+    /**
+     *
+     */
+    String cardDisplayed;
+
+    /**
+     *
+     */
+    CardLayout cl;
 	
-	WelcomeScreen s1;
-	PlayerSelectScreen s2;
-	CustomizeBoardScreen s3;
-	BoardScreen s4;
+    /**
+     *
+     */
+    WelcomeScreen s1;
+
+    /**
+     *
+     */
+    PlayerSelectScreen s2;
+
+    /**
+     *
+     */
+    CustomizeBoardScreen s3;
+
+    /**
+     *
+     */
+    BoardScreen s4;
 	
-	public void showCard(String cardName){
+    /**
+     *
+     * @param cardName
+     */
+    public void showCard(String cardName){
 		cl.show(cards, cardName);
 	}
 	
-	public void resetAll(){
+    /**
+     *
+     */
+    public void resetAll(){
 		s1 = new WelcomeScreen(this);
 		s2 = new PlayerSelectScreen(this);
 		s3 = new CustomizeBoardScreen(this);
@@ -37,12 +73,19 @@ public class MainWindow extends JFrame{
 	}
 	
 	//maintaining board info
+
+    /**
+     *
+     */
 	public void setBoard(){
 		s4 = new BoardScreen(this);
 		cards.add(s4, "Four");
 	}
 	
-	public MainWindow(){
+    /**
+     *
+     */
+    public MainWindow(){
 		
 		setVisible(true);
 		
