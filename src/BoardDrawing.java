@@ -10,6 +10,12 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ * Draws the board.
+ * @author Borja Ortiz Hernández
+ * 
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +32,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Draws the board.
+     * @param row. Rows of the board.
+     * @param col. Columns of the board.
+     * @param bs. Boardscreen.
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -65,6 +77,11 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Paints the components of the board.
+     * @param g. Graphics of the board.
+     * 
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -100,7 +117,14 @@ public class BoardDrawing extends JPanel {
         drawSnakesLadders(g2d);
 
     }
-
+    
+    /**
+     * Draws the positions of the board.
+     * @param g2d. Graphics.
+     * @param cellWidth. Width of the cell.
+     * @param cellHeight. Height of the cell.
+     * 
+     */
     private void drawPositions(Graphics2D g2d, int cellWidth, int cellHeight) {
         g2d.setColor(Color.BLUE);
         int i = 0;                                // i is our visible numbering
@@ -133,7 +157,12 @@ public class BoardDrawing extends JPanel {
             i++;
         }
     }
-
+    
+    /**
+     * Draws snakes and ladders.
+     * @param g2d. Graphics
+     * 
+     */
     private void drawSnakesLadders(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.portals) {
@@ -164,6 +193,11 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Colors the margins of the board.
+     * @param g2d. Graphics.
+     * 
+     */
     private void colorMargins(Graphics2D g2d) {
         g2d.setColor(Color.BLUE);
         for (Rectangle cell : cells) {
@@ -172,6 +206,11 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Colors the background of the cell. 
+     * @param g2d. Graphics.
+     * 
+     */
     private void colorCells(Graphics2D g2d) {
         g2d.setColor(Color.white);
         for (Rectangle cell : cells) {
@@ -179,6 +218,14 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Adds the board. 
+     * @param xOffset. Width of the board.
+     * @param cellWidth. Width of the cell.
+     * @param yOffset. Height of the board.
+     * @param cellHeight. Height of the cell.
+     * 
+     */
     private void addBoard(int xOffset, int cellWidth, int yOffset, int cellHeight) {
         if (cells.isEmpty()) {
             for (int i = 0; i < row; i++) {
@@ -202,6 +249,12 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * Changes position of the player depending on whether it falls into a snake or a ladder. 
+     * @param pnos. Position of the player
+     * @return information message about player position. 
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -222,6 +275,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * Changes position of the player given a current position and the number of positions to increase. 
+     * @param a. Number of positions to increase. 
+     * @param pnos. Current position. 
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }

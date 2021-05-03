@@ -1,6 +1,11 @@
 
 import javax.swing.SwingUtilities;
 
+/**
+ * Main class of the game.
+ * @author Borja Ortiz Hernández
+ * 
+ */
 public class Main {
 
     /**
