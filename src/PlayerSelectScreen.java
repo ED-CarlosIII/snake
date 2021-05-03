@@ -45,19 +45,25 @@ public class PlayerSelectScreen extends JPanel {
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
+                /*Extracciones a una variable que sean necesarias en el método
+                  PlayerSelectScreen*/
+                String onePlayer = "1 Player(Default)";
+                String twoPlayers = "2 Players";
+                String threePlayers = "3 Players";
+                
 		JLabel mess = new JLabel("Select Players: ");
 		add(mess);
 		
-		JLabel uc = new JLabel("Default: 1Player");
+		JLabel uc = new JLabel(onePlayer);
 		add(uc);
-		
+                
 		//set up radio buttons
 		
-		opt1 = new JRadioButton("1 Player(Default)");
+		opt1 = new JRadioButton(onePlayer);
 		opt1.setSelected(true);
 		
-		opt2 = new JRadioButton("2 Players");
-		opt3 = new JRadioButton("3 Players");
+		opt2 = new JRadioButton(twoPlayers);
+		opt3 = new JRadioButton(threePlayers);
 		
 		ButtonGroup grp = new ButtonGroup();
 		grp.add(opt1);
