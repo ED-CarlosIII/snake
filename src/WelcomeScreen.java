@@ -9,28 +9,60 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ *
+ * @author Ruben
+ */
 public class WelcomeScreen extends JPanel{
-	JLabel title;
-	JButton go;
-	JButton quit;
+
+    /**
+     *
+     */
+    JLabel title;
+
+    /**
+     *
+     */
+    JButton go;
+
+    /**
+     *
+     */
+    JButton quit;
 	
-	MainWindow mw;
+    /**
+     *
+     */
+    MainWindow mw;
 	
-	public void setTitle(String t){
+    /**
+     *
+     * @param t
+     */
+    public void setTitle(String t){
 		title.setText(t);
 	}
 	
-	public void quitButtonActionListener(){
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
 		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
 	        System.exit(0);
 	}
 	
-	public void goButtonActionListener(){
+    /**
+     *
+     */
+    public void goButtonActionListener(){
 		mw.showCard("Two");
 	}
  
-	public WelcomeScreen(MainWindow mw){
+    /**
+     *
+     * @param mw
+     */
+    public WelcomeScreen(MainWindow mw){
 		this.mw = mw;
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -39,23 +71,31 @@ public class WelcomeScreen extends JPanel{
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+		go = new JButton(NEW_GAME);
+		quit = new JButton(QUIT1);	
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				goButtonActionListener();
-			}
-		});
+		ActionListener go1 = (ActionEvent event) -> {
+                    goButtonActionListener();
+                };
+                go.addActionListener(go1);
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				 quitButtonActionListener();
-			}
-		});
+		ActionListener quit1 = (ActionEvent event) -> {
+                    quitButtonActionListener();
+                };
+                quit.addActionListener(quit1);
 		
 		add(go);
 		add(quit);
 	}
+
+    /**
+     *
+     */
+    protected static final String QUIT1 = "Quit";
+
+    /**
+     *
+     */
+    protected static final String NEW_GAME = "New Game";
 
 }
