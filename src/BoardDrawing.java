@@ -15,34 +15,34 @@ public class BoardDrawing extends JPanel {
     
     int b = 0;
     /**
-    @param b eso
+    @param b Este parámetro hace cosas increíbles
     */
     
     int row = 8;
     /**
-    @param row aaaaa
+    @param row El parámetro row indica cuántas filas tiene el Board
     */
     
     int col = 8;
     /**
-    @param col dddddd
+    @param col El parámetro col indica cuántas columnas tiene el Board
     */
     
     ArrayList<Rectangle> cells;
     /**
-    @param cells f
+    @param cells Cells establece el arraylist de celdas
     */
 
     //int player;
     int[] cellnos;
     /**
-    @param cellnos hq
+    @param cellnos Este int[] es muy importante para todo el proyecto
     */
     
     
     BoardScreen bs;
     /**
-    @param bs hola caracola
+    @param bs Crea la boardscreen
     */
     
     //ArrayList<Portal> portals;
