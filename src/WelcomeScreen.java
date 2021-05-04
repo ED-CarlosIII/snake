@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author alumno
+ */
 public class WelcomeScreen extends JPanel {
 
     JLabel title;
@@ -18,20 +22,34 @@ public class WelcomeScreen extends JPanel {
 
     MainWindow mw;
 
+    /**
+     *
+     * @param t
+     */
     public void setTitle(String t) {
         title.setText(t);
     }
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         mw.showCard("Two");
     }
 
+    /**
+     *
+     * @param mw
+     */
     public WelcomeScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -58,7 +76,15 @@ public class WelcomeScreen extends JPanel {
         add(go);
         add(quit);
     }
+
+    /**
+     *
+     */
     public static final String SALIR = "Quit";
+
+    /**
+     *
+     */
     public static final String PARTIDA_NUEVA = "New Game";
 
 }

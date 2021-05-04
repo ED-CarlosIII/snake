@@ -10,10 +10,15 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author alumno
+ */
 public class BoardDrawing extends JPanel {
 
     /**
-     *
+     *  // Variables de la clase
      */
     int b = 0;
     int row = 8;
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * //Constructor con tres parámetros
+     * @param row
+     * @param col
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -172,6 +183,14 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * // Método estático con 5 parámetros
+     * @param g2d
+     * @param pl
+     * @param cell
+     * @param cellWidth
+     * @param cellHeight
+     */
     public void colorPantalla(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
         //only one player considered here
         
@@ -180,6 +199,10 @@ public class BoardDrawing extends JPanel {
         g2d.setColor(Color.blue);
     }
 
+    /**
+     *  // Método estático con 1 parámetro
+     * @param g2d
+     */
     public void colorAzul(Graphics2D g2d) {
         g2d.setColor(Color.BLUE);
     }
@@ -192,6 +215,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     *  // Método get que devuelve un mensaje con string y que necesita un parámetro
+     * @param pnos
+     * @return
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -212,6 +242,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * // Método set con dos parámetros enteros
+     * @param a
+     * @param pnos
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
