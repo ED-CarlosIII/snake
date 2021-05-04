@@ -10,6 +10,11 @@ import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
 
+/**
+ *
+ * @author alumno
+ */
+
 public class PlayerSelectScreen extends JPanel {
 	JButton go;
 	JButton quit;
@@ -19,17 +24,26 @@ public class PlayerSelectScreen extends JPanel {
 	JRadioButton opt2;
 	JRadioButton opt3;
 	
-	public void quitButtonActionListener(){
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
 		mw.showCard("One");
 	}
 	
-	public void goButtonActionListener(){
+    /**
+     *
+     */
+    public void goButtonActionListener(){
 		playerOptions();
 		mw.s4.setUpPlayers();
 		mw.showCard("Three");
 	}
 	
-	public void playerOptions(){
+    /**
+     *
+     */
+    public void playerOptions(){
 		int m = 5;
 		if(opt1.isSelected() == true)
 		    m = 1;
@@ -40,24 +54,33 @@ public class PlayerSelectScreen extends JPanel {
 	    mw.s4.setMaxPlayers(m);
 	}
 	
-	public PlayerSelectScreen(MainWindow mw){
+    /**
+     *
+     * @param mw
+     */
+    public PlayerSelectScreen(MainWindow mw){
 		this.mw = mw;
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+            String eligeJugador = "Select Players: ";
 		
-		JLabel mess = new JLabel("Select Players: ");
+		JLabel mess = new JLabel(eligeJugador);
 		add(mess);
+            String jugadorPorDefecto = "Default: 1Player";
 		
-		JLabel uc = new JLabel("Default: 1Player");
+		JLabel uc = new JLabel(jugadorPorDefecto);
 		add(uc);
+            String un_Jugador = "1 Player(Default)";
 		
 		//set up radio buttons
 		
-		opt1 = new JRadioButton("1 Player(Default)");
+		opt1 = new JRadioButton(un_Jugador);
 		opt1.setSelected(true);
+            String dos_Jugadores = "2 Players";
 		
-		opt2 = new JRadioButton("2 Players");
-		opt3 = new JRadioButton("3 Players");
+		opt2 = new JRadioButton(dos_Jugadores);
+            String tres_Jugadores = "3 Players";
+		opt3 = new JRadioButton(tres_Jugadores);
 		
 		ButtonGroup grp = new ButtonGroup();
 		grp.add(opt1);
@@ -84,9 +107,11 @@ public class PlayerSelectScreen extends JPanel {
 				playerOptions();
 			}
 		});
+            String personaliza_Pantalla = "Customize Board";
 		
-		go = new JButton("Customize Board");
-		quit = new JButton("Back");	
+		go = new JButton(personaliza_Pantalla);
+            String atras = "Back";	
+		quit = new JButton(atras);	
 		
 		go.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
