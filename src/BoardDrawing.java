@@ -12,38 +12,46 @@ import javax.swing.JPanel;
 //note: unification of colors not done
 public class BoardDrawing extends JPanel {
 
-    
+    /**
+     * Este parámetro hace cosas increíbles
+     * @param       b a point
+     */
     int b = 0;
-    /**
-    @param b Este parámetro hace cosas increíbles
-    */
     
+    
+    /**
+     * El parámetro row indica cuántas filas tiene el Board
+     * @param row
+     */
     int row = 8;
-    /**
-    @param row El parámetro row indica cuántas filas tiene el Board
-    */
     
+    /**
+     * El parámetro col indica cuántas columnas tiene el Board
+     * @param col
+     */
     int col = 8;
-    /**
-    @param col El parámetro col indica cuántas columnas tiene el Board
-    */
     
-    ArrayList<Rectangle> cells;
+    
     /**
-    @param cells Cells establece el arraylist de celdas
-    */
+     * Cells establece el arraylist de celdas
+     * @param  cells
+     */
+    ArrayList<Rectangle> cells;
+    
 
     //int player;
+    /**
+     * Este int[] es muy importante para todo el proyecto
+     * @param cellnos
+     */
     int[] cellnos;
+        
     /**
-    @param cellnos Este int[] es muy importante para todo el proyecto
-    */
-    
-    
+     * Crea la boardscreen
+     * @param       bs 
+     */
     BoardScreen bs;
-    /**
-    @param bs Crea la boardscreen
-    */
+    
     
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
