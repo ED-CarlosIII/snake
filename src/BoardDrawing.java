@@ -12,17 +12,39 @@ import javax.swing.JPanel;
 //note: unification of colors not done
 public class BoardDrawing extends JPanel {
 
-    /**
-     *
-     */
+    
     int b = 0;
+    /**
+    @param b eso
+    */
+    
     int row = 8;
+    /**
+    @param row aaaaa
+    */
+    
     int col = 8;
+    /**
+    @param col dddddd
+    */
+    
     ArrayList<Rectangle> cells;
+    /**
+    @param cells f
+    */
+
     //int player;
     int[] cellnos;
-
+    /**
+    @param cellnos hq
+    */
+    
+    
     BoardScreen bs;
+    /**
+    @param bs hola caracola
+    */
+    
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
