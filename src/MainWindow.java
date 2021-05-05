@@ -8,50 +8,63 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ * Clase encargada de la ventana principal del progama
+ * @author 34602
+ */
 public class MainWindow extends JFrame{
 	
-	JPanel cards;
-	String cardDisplayed;
-	CardLayout cl;
+    JPanel cards;
+    String cardDisplayed;
+    CardLayout cl;
 	
-	WelcomeScreen s1;
-	PlayerSelectScreen s2;
-	CustomizeBoardScreen s3;
-	BoardScreen s4;
-	
+    WelcomeScreen s1;
+    PlayerSelectScreen s2;
+    CustomizeBoardScreen s3;
+    BoardScreen s4;
+	/**
+         * Método que muesta la tarjeta del juego
+         * @param cardName Guarda el nombre de la tarjeta del juego
+         */
 	public void showCard(String cardName){
-		cl.show(cards, cardName);
+	   cl.show(cards, cardName);
 	}
-	
+	/**
+         * Método que resetea los diseños de las tarjetas
+         */
 	public void resetAll(){
-		s1 = new WelcomeScreen(this);
-		s2 = new PlayerSelectScreen(this);
-		s3 = new CustomizeBoardScreen(this);
-		s4 = new BoardScreen(this);
+	    s1 = new WelcomeScreen(this);
+	    s2 = new PlayerSelectScreen(this);
+	    s3 = new CustomizeBoardScreen(this);
+	    s4 = new BoardScreen(this);
 		
-		cards.add(s1,"One");
-		cards.add(s2,"Two");
-		cards.add(s3, "Three");
-		cards.add(s4, "Four");
+	    cards.add(s1,"One");
+	    cards.add(s2,"Two");
+	    cards.add(s3, "Three");
+	    cards.add(s4, "Four");
 	}
 	
 	//maintaining board info
-	public void setBoard(){
-		s4 = new BoardScreen(this);
-		cards.add(s4, "Four");
+	/**
+         * Método que establece el tablero
+         */
+        public void setBoard(){
+	    s4 = new BoardScreen(this);
+	    cards.add(s4, "Four");
 	}
-	
+	/**
+         * Método que crea la ventana principal del juego
+         */
 	public MainWindow(){
 		
-		setVisible(true);
+	    setVisible(true);
 		
-		cards = new JPanel();
-		cards.setLayout(new CardLayout());
-		add(cards);
+	    cards = new JPanel();
+	    cards.setLayout(new CardLayout());
+	    add(cards);
 		
-		s1 = new WelcomeScreen(this);
-		s1.setTitle("Snake and Ladders");
+	    s1 = new WelcomeScreen(this);
+	    s1.setTitle("Snake and Ladders");
 		
 		/*
 		JPanel jp2 = new JPanel(new FlowLayout());
@@ -71,32 +84,32 @@ public class MainWindow extends JFrame{
 		*/
 		
 		
-		JPanel jp5 = new JPanel(new FlowLayout());
-		JLabel jl5 = new JLabel("Panel 5");
+	    JPanel jp5 = new JPanel(new FlowLayout());
+	    JLabel jl5 = new JLabel("Panel 5");
 		
-		jp5.setSize(this.getSize());
-		jp5.add(jl5);
-		jp5.setVisible(true);
+	    jp5.setSize(this.getSize());
+	    jp5.add(jl5);
+	    jp5.setVisible(true);
 		
 		
 		
-		s2 = new PlayerSelectScreen(this);
-		s3 = new CustomizeBoardScreen(this);
-		s4 = new BoardScreen(this);
+	    s2 = new PlayerSelectScreen(this);
+	    s3 = new CustomizeBoardScreen(this);
+	    s4 = new BoardScreen(this);
 		
-		cards.add(s1,"One");
-		cards.add(s2,"Two");
-		cards.add(s3, "Three");
-		cards.add(s4, "Four");
+	    cards.add(s1,"One");
+	    cards.add(s2,"Two");
+	    cards.add(s3, "Three");
+	    cards.add(s4, "Four");
 		
 		//cards.add(jp2,"Two");
 		//cards.add(jp4,"Four");
-		cards.add(jp5, "Five");
+	    cards.add(jp5, "Five");
 		
-		cl = (CardLayout)(cards.getLayout());
+	    cl = (CardLayout)(cards.getLayout());
 		
-		cl.show(cards, "One");
-		showCard("One");	
+	    cl.show(cards, "One");
+	    showCard("One");	
 	}
 
 }
