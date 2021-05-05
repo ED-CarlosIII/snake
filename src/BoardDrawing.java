@@ -10,10 +10,15 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author dosmi
+ */
 public class BoardDrawing extends JPanel {
 
     /**
-     *
+     * Creación de variables
      */
     int b = 0;
     int row = 8;
@@ -26,9 +31,16 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Metodo para definir el tamaño del tablero
+     * 
+     * @param row
+     * @param col
+     * @param bs
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
+        
         this.bs = bs;
-
         this.row = row;
         this.col = col;
         //player = 0;
@@ -37,8 +49,8 @@ public class BoardDrawing extends JPanel {
         //    bs.players.add(new Player(i));
         //get and add player(s) names
 
+        
         cells = new ArrayList<Rectangle>();
-
         cellnos = new int[row * col];
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -65,6 +77,11 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     *Metodo para definir el tamaño de cada celda y su color
+     * 
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -161,7 +178,16 @@ public class BoardDrawing extends JPanel {
         }
 
     }
-
+    /**
+     *Metodo para definir la posición del jugador
+     * 
+     * @param i
+     * @param g2d
+     * @param cell
+     * @param cellWidth
+     * @param cellHeight
+     * 
+     */
     private void PlayerPosition(int i, Graphics2D g2d, Rectangle cell, int cellWidth, int cellHeight) {
         //draw player position
         for (int pl = 0; pl < bs.maxPlayers; pl++) {
@@ -182,6 +208,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * Metodo para enviar un mensaje al jugador con la posición de la serpiente
+     * @param pnos
+     * @return message
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -202,6 +235,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * Metodo para obtener la posición del jugador
+     * @param a
+     * @param pnos
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
