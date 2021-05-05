@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author carolina
+ */
 public class MainWindow extends JFrame {
 
     JPanel cards;
@@ -20,10 +24,17 @@ public class MainWindow extends JFrame {
     CustomizeBoardScreen s3;
     BoardScreen s4;
 
+    /**
+     *
+     * @param cardName
+     */
     public void showCard(String cardName) {
         cl.show(cards, cardName);
     }
 
+    /**
+     *
+     */
     public void resetAll() {
         s1 = new WelcomeScreen(this);
         s2 = new PlayerSelectScreen(this);
@@ -37,11 +48,18 @@ public class MainWindow extends JFrame {
     }
 
     //maintaining board info
+
+    /**
+     *
+     */
     public void setBoard() {
         s4 = new BoardScreen(this);
         cards.add(s4, "Four");
     }
 
+    /**
+     *
+     */
     public MainWindow() {
 
         setVisible(true);
@@ -53,22 +71,6 @@ public class MainWindow extends JFrame {
         s1 = new WelcomeScreen(this);
         s1.setTitle("Snake and Ladders");
 
-        /*
-		JPanel jp2 = new JPanel(new FlowLayout());
-		JLabel jl2 = new JLabel("Panel 2");
-		JButton jb2 = new JButton("Go ahead!");
-		jp2.add(jb2);
-		jb2.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				cl.show(cards, "Three");
-			}
-		});
-		
-		jp2.setSize(this.getSize());
-		jp2.add(jl2);
-		jp2.setVisible(true);
-		
-         */
         JPanel jp5 = new JPanel(new FlowLayout());
         JLabel jl5 = new JLabel("Panel 5");
 
@@ -84,9 +86,6 @@ public class MainWindow extends JFrame {
         cards.add(s2, "Two");
         cards.add(s3, "Three");
         cards.add(s4, "Four");
-
-        //cards.add(jp2,"Two");
-        //cards.add(jp4,"Four");
         cards.add(jp5, "Five");
 
         cl = (CardLayout) (cards.getLayout());
