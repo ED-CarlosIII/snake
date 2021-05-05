@@ -111,7 +111,7 @@ public class BoardDrawing extends JPanel{
 			g2d.fill(cell);
 		}
 		
-		g2d.setColor(Color.BLUE);
+		ColorBLUE(g2d);
 		for(Rectangle cell : cells){
 			g2d.draw(cell);
 		}
@@ -121,7 +121,7 @@ public class BoardDrawing extends JPanel{
 		
 		
 		
-		g2d.setColor(Color.BLUE);
+		ColorBLUE(g2d);
 		int i=0;                                // i is our visible numbering 
 		for(Rectangle cell : cells){
 			
@@ -131,20 +131,17 @@ public class BoardDrawing extends JPanel{
 			
 		    //draw player position
 		    for(int pl = 0;pl < bs.maxPlayers;pl++)
-			if(bs.players.get(pl).returnPosition() == cellnos[i]){                         //only one player considered here
-				
-				g2d.setColor(bs.players.get(pl).returnPlayerColor());        //change to player color
-				g2d.fillRect(cell.getLocation().x + pl*cellWidth/4, cell.getLocation().y, cellWidth/4, cellHeight/4);//change to player position
-				g2d.setColor(Color.blue);
+			if(bs.players.get(pl).getPosition() == cellnos[i]){                         				
+				Calculo(g2d, pl, cell, cellWidth, cellHeight);
 			}
 		    
             if(cellnos[i] == row*col-1){
             	for(int pl = 0;pl < bs.maxPlayers;pl++)
-        			if(bs.players.get(pl).returnPosition() >= cellnos[i]){                         //only one player considered here
+        			if(bs.players.get(pl).getPosition() >= cellnos[i]){                         //only one player considered here
         				
-        				g2d.setColor(bs.players.get(pl).returnPlayerColor());        //change to player color
-        				g2d.fillRect(cell.getLocation().x + pl*cellWidth/4, cell.getLocation().y, cellWidth/4, cellHeight/4);//change to player position
-        				g2d.setColor(Color.blue);
+        				Calculo(g2d, pl, cell, cellWidth, cellHeight);
+                        //change to player position
+                        //change to player color
         			}   
             }
 		    i++;
@@ -176,6 +173,18 @@ public class BoardDrawing extends JPanel{
 		}
 		
 	}
+
+    private void ColorBLUE(Graphics2D g2d) {
+        g2d.setColor(Color.BLUE);
+    }
+
+    private void Calculo(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
+        //only one player considered here
+        
+        g2d.setColor(bs.players.get(pl).getPlayerColor());        //change to player color
+        g2d.fillRect(cell.getLocation().x + pl*cellWidth/4, cell.getLocation().y, cellWidth/4, cellHeight/4);//change to player position
+        g2d.setColor(Color.blue);
+    }
 	/*
 	public void ensurePlayerPosition(){
 		for(Portal port :portals){
@@ -187,7 +196,7 @@ public class BoardDrawing extends JPanel{
 	public String ensurePlayerPosition(int pnos){
 		String message = "";
 		for(Portal port :bs.portals){
-			if(bs.players.get(pnos).returnPosition() == port.returnStart()){
+			if(bs.players.get(pnos).getPosition() == port.returnStart()){
 				bs.players.get(pnos).setPosition(port.returnEnd());
 				if(port.returnNature() == 1)
 					message += "You are up through ladder at position " + port.returnStart();
