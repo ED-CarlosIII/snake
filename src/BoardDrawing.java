@@ -10,11 +10,12 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+/**
+ *
+ * @author RAÚL
+ */
 public class BoardDrawing extends JPanel {
 
-    /**
-     *
-     */
     int b = 0;
     int row = 8;
     int col = 8;
@@ -26,6 +27,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+   /**
+    * Es el constructor de un objeto que dibuja el tablero
+    * @param row
+    * @param col
+    * @param bs 
+    */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -65,6 +72,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     *Método que pinta los componentes
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -169,6 +180,14 @@ public class BoardDrawing extends JPanel {
 
     }
 
+  /**
+   * Método que dibuja la posición del jugador
+   * @param g2d
+   * @param pl
+   * @param cell
+   * @param cellWidth
+   * @param cellHeight 
+   */
     protected void drawPlayerPosition(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
         //only one player considered here
 
@@ -185,6 +204,11 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+/**
+ * Método que asegura la posición del jugador
+ * @param pnos
+ * @return 
+ */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -205,6 +229,11 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+   /**
+    * Método que establece un jugador
+    * @param a
+    * @param pnos 
+    */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }

@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author RAÚL
+ */
 public class BoardScreen extends JPanel {
 
     /**
@@ -36,26 +40,43 @@ public class BoardScreen extends JPanel {
     JButton go;
     JButton quit;
 
+   /**
+    * boton de quitar
+    */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     *boton de ir
+     */
     public void goButtonActionListener() {
         mw.showCard("Two");
         //mw.setBoard();
         mw.resetAll();
     }
 
+    /**
+     *
+     * @param m
+     */
     public void setMaxPlayers(int m) {
         maxPlayers = m;
     }
 
+    /**
+     *
+     * @return
+     */
     public int returnMaxPlayers() {
         return maxPlayers;
     }
 
+    /**
+     *configurar jugador
+     */
     public void setUpPlayers() {
         players = new ArrayList<Player>();
         for (int i = 0; i < returnMaxPlayers(); i++) {
@@ -76,6 +97,10 @@ public class BoardScreen extends JPanel {
 
     }
 
+    /**
+     *
+     * @param mw
+     */
     public BoardScreen(MainWindow mw) {
         this.mw = mw;
 

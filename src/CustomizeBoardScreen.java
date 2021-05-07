@@ -8,20 +8,35 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 //needs massive improvements
+
+/**
+ *
+ * @author RAÚL
+ */
 public class CustomizeBoardScreen extends JPanel {
 
     JButton go;
     JButton quit;
     MainWindow mw;
 
+    /**
+     *2
+     */
     public void quitButtonActionListener() {
         mw.showCard("Two");
     }
 
+    /**
+     *4
+     */
     public void goButtonActionListener() {
         mw.showCard("Four");
     }
 
+    /**
+     *
+     * @param mw
+     */
     public CustomizeBoardScreen(MainWindow mw) {
         this.mw = mw;
 
