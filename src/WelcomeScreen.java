@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * Define el titulo de la pantalla de bienvenida
+ * @author Jose Luis Sáez Sánchez
+ */
 public class WelcomeScreen extends JPanel {
 
     private static final String quitButtonText = "Quit";
@@ -23,20 +27,36 @@ public class WelcomeScreen extends JPanel {
 
     MainWindow mw;
 
+    /**
+     *
+     * @param t
+     * Metodo que define el titulo de la ventana de bienvenida
+     */
     public void setTitle(String t) {
         title.setText(t);
     }
 
+    /**
+     * Metodo boton salir
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, confirmDialogText) == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     * Metodo boton go
+     */
     public void goButtonActionListener() {
         mw.showCard(showcardTwoText);
     }
 
+    /**
+     *
+     * @param mw
+     * Ventana principal de la pantalla de bienvenida.
+     */
     public WelcomeScreen(MainWindow mw) {
         this.mw = mw;
 

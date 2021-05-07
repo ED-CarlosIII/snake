@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
+
+/**
+ * Pantalla de interacción con el usuario donde elige modo de juego. 
+ * @author Jose Luis Sáez Sánchez
+ */
 public class PlayerSelectScreen extends JPanel {
 
     JButton go;
@@ -20,16 +25,25 @@ public class PlayerSelectScreen extends JPanel {
     JRadioButton opt2;
     JRadioButton opt3;
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         mw.showCard("One");
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         playerOptions();
         mw.s4.setUpPlayers();
         mw.showCard("Three");
     }
 
+    /**
+     *
+     */
     public void playerOptions() {
         int m = 5;
         if (opt1.isSelected() == true) {
@@ -42,6 +56,10 @@ public class PlayerSelectScreen extends JPanel {
         mw.s4.setMaxPlayers(m);
     }
 
+    /**
+     * Clase que configura la pantalla de opciones al jugador
+     * @param MainWindow
+     */
     public PlayerSelectScreen(MainWindow mw) {
         final String radioButtonOption1Text = "1 Player(Default)";
         final String radioButtonOption2Text = "2 Players";
