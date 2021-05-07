@@ -30,7 +30,7 @@ public class BoardDrawing extends JPanel {
 
     /**
      *
-     * @param row
+     * @param i
      * @param col
      * @param bs
      */

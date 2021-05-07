@@ -14,7 +14,7 @@ public class Player {
 
     /**
      *
-     * @param no
+     * @param i
      */
     public Player(int no) {
         name = "Player " + no;
