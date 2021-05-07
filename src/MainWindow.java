@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author alumno
+ */
 public class MainWindow extends JFrame {
 
     JPanel cards;
@@ -20,10 +24,17 @@ public class MainWindow extends JFrame {
     CustomizeBoardScreen s3;
     BoardScreen s4;
 
+    /**
+     * Método para mostrar la ficha
+     * @param cardName nombre de la ficha
+     */
     public void showCard(String cardName) {
         cl.show(cards, cardName);
     }
 
+    /**
+     * Método para resetear todo
+     */
     public void resetAll() {
         s1 = new WelcomeScreen(this);
         s2 = new PlayerSelectScreen(this);
@@ -37,11 +48,18 @@ public class MainWindow extends JFrame {
     }
 
     //maintaining board info
+
+    /**
+     * Método para establecer el tablero del juego
+     */
     public void setBoard() {
         s4 = new BoardScreen(this);
         cards.add(s4, "Four");
     }
 
+    /**
+     * Método constructor de un objeto que representa la pantalla principal
+     */
     public MainWindow() {
 
         setVisible(true);

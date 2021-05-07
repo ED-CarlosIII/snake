@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author alumno
+ */
 public class WelcomeScreen extends JPanel {
 
     private static final String TEXT_QUIT = "Quit";
@@ -21,20 +25,34 @@ public class WelcomeScreen extends JPanel {
 
     MainWindow mw;
 
+    /**
+     * Método para establecer el título
+     * @param t texto para el título de la pantalla de bienvenida
+     */
     public void setTitle(String t) {
         title.setText(t);
     }
 
+    /**
+     * Método que deja de escuchar la acción del botón 
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     * Método que escucha la acción del botón 
+     */
     public void goButtonActionListener() {
         mw.showCard("Two");
     }
 
+    /**
+     * Método constructor de un objeto que representa la pantalla de bienvenida
+     * @param mw objeto de tipo ventana principal
+     */
     public WelcomeScreen(MainWindow mw) {
         this.mw = mw;
 
