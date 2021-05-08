@@ -7,21 +7,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-//needs massive improvements
+/**
+ * Clase Personalizar Pantalla del tablero
+ * @author Juan José Férez Cerezo
+ */
 public class CustomizeBoardScreen extends JPanel {
 
     JButton go;
     JButton quit;
     MainWindow mw;
 
-    public void quitButtonActionListener() {
-        mw.showCard("Two");
-    }
-
-    public void goButtonActionListener() {
-        mw.showCard("Four");
-    }
-
+    /**
+     * Constructor
+     * @param mw ventana principal
+     */
     public CustomizeBoardScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -51,4 +50,20 @@ public class CustomizeBoardScreen extends JPanel {
         add(quit);
 
     }
+    
+    /**
+     * ActionListener boton eliminar
+     */
+    public void quitButtonActionListener() {
+        mw.showCard("Two");
+    }
+
+    /**
+     * ActionListener boton ir hacia delante
+     */
+    public void goButtonActionListener() {
+        mw.showCard("Four");
+    }
+
+    
 }

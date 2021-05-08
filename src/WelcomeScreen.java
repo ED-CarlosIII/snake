@@ -8,9 +8,19 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * Clase Pantalla de bienvenida
+ * @author Juan José Férez Cerezo
+ */
 public class WelcomeScreen extends JPanel {
     
+    /**
+     * Variable estatica boton borrar
+     */
     private static final JButton J_BUTTON_QUIT = new JButton("Quit");
+    /**
+     * Variable estatica boton inicio
+     */
     private static final JButton J_BUTTON_GO = new JButton("New Game");
     
     JLabel title;
@@ -19,20 +29,10 @@ public class WelcomeScreen extends JPanel {
 
     MainWindow mw;
 
-    public void setTitle(String t) {
-        title.setText(t);
-    }
-
-    public void quitButtonActionListener() {
-        if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
-            System.exit(0);
-        }
-    }
-
-    public void goButtonActionListener() {
-        mw.showCard("Two");
-    }
-
+    /**
+     * Constructor
+     * @param mw pantalla inicial
+     */
     public WelcomeScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -59,5 +59,31 @@ public class WelcomeScreen extends JPanel {
         add(go);
         add(quit);
     }
+    
+    /**
+     * Metodo establer titulo
+     * @param t titulo
+     */
+    public void setTitle(String t) {
+        title.setText(t);
+    }
+
+    /**
+     * ActionListener boton borrar
+     */
+    public void quitButtonActionListener() {
+        if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
+            System.exit(0);
+        }
+    }
+
+    /**
+     * ActionListener boton ir hacia delante
+     */
+    public void goButtonActionListener() {
+        mw.showCard("Two");
+    }
+
+    
     
 }

@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Clase Ventana Principal
+ * @author Juanjo
+ */
 public class MainWindow extends JFrame {
 
     JPanel cards;
@@ -17,28 +21,9 @@ public class MainWindow extends JFrame {
     CustomizeBoardScreen s3;
     BoardScreen s4;
 
-    public void showCard(String cardName) {
-        cl.show(cards, cardName);
-    }
-
-    public void resetAll() {
-        s1 = new WelcomeScreen(this);
-        s2 = new PlayerSelectScreen(this);
-        s3 = new CustomizeBoardScreen(this);
-        s4 = new BoardScreen(this);
-
-        cards.add(s1, "One");
-        cards.add(s2, "Two");
-        cards.add(s3, "Three");
-        cards.add(s4, "Four");
-    }
-
-    //maintaining board info
-    public void setBoard() {
-        s4 = new BoardScreen(this);
-        cards.add(s4, "Four");
-    }
-
+    /**
+     * Constructor Ventana Principal
+     */
     public MainWindow() {
 
         setVisible(true);
@@ -73,5 +58,38 @@ public class MainWindow extends JFrame {
         cl.show(cards, "One");
         showCard("One");
     }
+    
+    /**
+     * Metodo mostrar tarjeta
+     * @param cardName Nombre de tarjeta
+     */
+    public void showCard(String cardName) {
+        cl.show(cards, cardName);
+    }
+
+    /**
+     * Metodo borrar todo
+     */
+    public void resetAll() {
+        s1 = new WelcomeScreen(this);
+        s2 = new PlayerSelectScreen(this);
+        s3 = new CustomizeBoardScreen(this);
+        s4 = new BoardScreen(this);
+
+        cards.add(s1, "One");
+        cards.add(s2, "Two");
+        cards.add(s3, "Three");
+        cards.add(s4, "Four");
+    }
+
+    /**
+     * Metodo establecer tablero
+     */    
+    public void setBoard() {
+        s4 = new BoardScreen(this);
+        cards.add(s4, "Four");
+    }
+
+    
 
 }

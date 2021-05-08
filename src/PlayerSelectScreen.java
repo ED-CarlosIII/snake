@@ -9,7 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-//needs massive aesthetic rewrites
+/**
+ * Clase Seleccion Pantalla jugador
+ * @author Juan José Férez Cerezo
+ */
 public class PlayerSelectScreen extends JPanel {
 
     JButton go;
@@ -20,28 +23,10 @@ public class PlayerSelectScreen extends JPanel {
     JRadioButton opt2;
     JRadioButton opt3;
 
-    public void quitButtonActionListener() {
-        mw.showCard("One");
-    }
-
-    public void goButtonActionListener() {
-        playerOptions();
-        mw.s4.setUpPlayers();
-        mw.showCard("Three");
-    }
-
-    public void playerOptions() {
-        int m = 5;
-        if (opt1.isSelected() == true) {
-            m = 1;
-        } else if (opt2.isSelected() == true) {
-            m = 2;
-        } else if (opt3.isSelected() == true) {
-            m = 3;
-        }
-        mw.s4.setMaxPlayers(m);
-    }
-
+    /**
+     * Constructor
+     * @param mw ventana principal
+     */
     public PlayerSelectScreen(MainWindow mw) {
         this.mw = mw;
         BoxLayout boxLayout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
@@ -101,5 +86,38 @@ public class PlayerSelectScreen extends JPanel {
         add(quit);
 
     }
+    
+    /**
+     * ActionListener boton eliminar
+     */
+    public void quitButtonActionListener() {
+        mw.showCard("One");
+    }
+
+    /**
+     * ActionListener boton ir hacia delante
+     */
+    public void goButtonActionListener() {
+        playerOptions();
+        mw.s4.setUpPlayers();
+        mw.showCard("Three");
+    }
+
+    /**
+     * Opciones de jugador
+     */
+    public void playerOptions() {
+        int m = 5;
+        if (opt1.isSelected() == true) {
+            m = 1;
+        } else if (opt2.isSelected() == true) {
+            m = 2;
+        } else if (opt3.isSelected() == true) {
+            m = 3;
+        }
+        mw.s4.setMaxPlayers(m);
+    }
+
+    
 
 }

@@ -1,10 +1,16 @@
 
 import javax.swing.SwingUtilities;
 
+/**
+ * 
+ * @author Juan José Ferez Cerezo
+ */
+
 public class Main {
 
     /**
-     * @param args
+     * Menu principal de la aplicacion
+     * @param args 
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

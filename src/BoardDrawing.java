@@ -7,14 +7,12 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-//note: board does not change dynamically 
-//note: board shape and window aesthetics to be set
-//note: unification of colors not done
+/**
+ * Clase dibujar tablero
+ * @author Juan José férez Cerezo
+ */
 public class BoardDrawing extends JPanel {
 
-    /**
-     *
-     */
     int b = 0;
     int row = 8;
     int col = 8;
@@ -23,6 +21,12 @@ public class BoardDrawing extends JPanel {
 
     BoardScreen bs;
 
+    /**
+     * Constructor
+     * @param row Fila del tablero
+     * @param col Columna del tablero
+     * @param bs Pantalla del tablero
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -32,6 +36,7 @@ public class BoardDrawing extends JPanel {
         cells = new ArrayList<Rectangle>();
 
         cellnos = new int[row * col];
+
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 if (i % 2 == 0) {
@@ -57,6 +62,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Metodo para pintar componente
+     * @param g Grafico
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -87,6 +96,12 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Metodo para dibujar celdas de los numeros
+     * @param g2d Color
+     * @param cellWidth Ancho de celda
+     * @param cellHeight Alto de celda
+     */
     private void dibujarCeldaNumeros(Graphics2D g2d, int cellWidth, int cellHeight) {
         //Draw cells and numbers
         //may have to modify program based on number of players
@@ -101,6 +116,10 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Metodo para dibujar la serpiente de la escalera
+     * @param g2d Color
+     */
     private void dibujarSerpienteEscalera(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.portals) {
@@ -131,6 +150,14 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Metodo para dibujar posicion del jugador
+     * @param i variable auxiliar 
+     * @param g2d color
+     * @param cell celda
+     * @param cellWidth anchura de celda
+     * @param cellHeight altura de celda
+     */
     private void dibujarPlayerPosition(int i, Graphics2D g2d, Rectangle cell, int cellWidth, int cellHeight) {
         //draw player position
         for (int pl = 0; pl < bs.maxPlayers; pl++) {
@@ -154,6 +181,13 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Metodo para crear la celda
+     * @param width Anchura
+     * @param cellWidth Anchura de la celda
+     * @param height Altura
+     * @param cellHeight Altura de la celda
+     */
     private void crearCelda(int width, int cellWidth, int height, int cellHeight) {
         int xOffset = (width - (col * cellWidth)) / 2;
         int yOffset = (height - (row * cellHeight)) / 2;
@@ -172,6 +206,11 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Metodo para asegurar la posicion del jugador
+     * @param pnos Posicion
+     * @return Mensaje
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -187,6 +226,11 @@ public class BoardDrawing extends JPanel {
         return message;
     }
 
+    /**
+     * Metodo para agregar jugador
+     * @param a numero
+     * @param pnos posicion
+     */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }

@@ -11,11 +11,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * Clase Pantalla del tablero
+ * @author Juan José Férez Cerezo
+ */
 public class BoardScreen extends JPanel {
 
-    /**
-     *
-     */
     int player = 0;
     BoardDrawing bd;
     JPanel stats;
@@ -36,49 +37,10 @@ public class BoardScreen extends JPanel {
     JButton go;
     JButton quit;
 
-    public void quitButtonActionListener() {
-        int showConfirmDialog = JOptionPane.showConfirmDialog(this, "Are you sure?");
-        int OK_OPTION = JOptionPane.OK_OPTION;
-        
-        if (showConfirmDialog == OK_OPTION) {
-            System.exit(0);
-        }
-    }
-
-    public void goButtonActionListener() {
-        mw.showCard("Two");
-        //mw.setBoard();
-        mw.resetAll();
-    }
-
-    public void setMaxPlayers(int m) {
-        maxPlayers = m;
-    }
-
-    public int getMaxPlayers() {
-        return maxPlayers;
-    }
-
-    public void setUpPlayers() {
-        players = new ArrayList<Player>();
-        for (int i = 0; i < getMaxPlayers(); i++) {
-            players.add(new Player(i));
-        }
-        //get and add player(s) names
-
-        //manual color entry - automate later
-        if (0 < getMaxPlayers()) {
-            players.get(0).setPlayerColor(Color.green);
-        }
-        if (1 < getMaxPlayers()) {
-            players.get(1).setPlayerColor(Color.blue);
-        }
-        if (2 < getMaxPlayers()) {
-            players.get(2).setPlayerColor(Color.red);
-        }
-
-    }
-
+    /**
+     * Constructor
+     * @param mw Ventana principal
+     */
     public BoardScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -147,7 +109,72 @@ public class BoardScreen extends JPanel {
         stats.add(success);
 
     }
+    
+    /**
+     * ActionListener del boton quitar
+     */
+    public void quitButtonActionListener() {
+        int showConfirmDialog = JOptionPane.showConfirmDialog(this, "Are you sure?");
+        int OK_OPTION = JOptionPane.OK_OPTION;
+        
+        if (showConfirmDialog == OK_OPTION) {
+            System.exit(0);
+        }
+    }
 
+    /**
+     * ActionListener del boton ir hacia delante
+     */
+    public void goButtonActionListener() {
+        mw.showCard("Two");
+        //mw.setBoard();
+        mw.resetAll();
+    }
+
+    /**
+     * Metodo para seleccionar maximo jugador
+     * @param m Numero maximo de jugadores
+     */
+    public void setMaxPlayers(int m) {
+        maxPlayers = m;
+    }
+
+    /**
+     * Metodo para saber el numero máximo de jugadores
+     * @return Devuelve numero máximo de jugadores
+     */
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+
+    /**
+     * Lista de jugadores
+     */
+    public void setUpPlayers() {
+        players = new ArrayList<Player>();
+        for (int i = 0; i < getMaxPlayers(); i++) {
+            players.add(new Player(i));
+        }
+        //get and add player(s) names
+
+        //manual color entry - automate later
+        if (0 < getMaxPlayers()) {
+            players.get(0).setPlayerColor(Color.green);
+        }
+        if (1 < getMaxPlayers()) {
+            players.get(1).setPlayerColor(Color.blue);
+        }
+        if (2 < getMaxPlayers()) {
+            players.get(2).setPlayerColor(Color.red);
+        }
+
+    }
+
+    
+
+    /**
+     * Metodo para moverse entre jugadores
+     */
     private void moverEntreJugadores() {
         //modify action listener to move between the n players
         //outside needs to know some amount of player data which may be got be asking and passing to inside
