@@ -7,9 +7,13 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-//note: board does not change dynamically 
-//note: board shape and window aesthetics to be set
-//note: unification of colors not done
+/**
+* note: board does not change dynamically 
+* note: board shape and window aesthetics to be set
+* note: unification of colors not done
+* 
+* @author  Cristina Torres Bernal
+**/
 public class BoardDrawing extends JPanel {
 
     /**
@@ -19,24 +23,24 @@ public class BoardDrawing extends JPanel {
     int row = 8;
     int col = 8;
     ArrayList<Rectangle> cells;
-    //int player;
+    
     int[] cellnos;
 
     BoardScreen bs;
-    //ArrayList<Portal> portals;
-    //ArrayList<Player> players;
-
+    
+    /**     
+     * Constuctor de BoardDrawing
+     * 
+     * @param row int
+     * @param col int
+     * @param bs BoardScreen
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
         this.row = row;
         this.col = col;
-        //player = 0;
-        //bs.players = new ArrayList<Player>();
-        //for(int i = 1;i <= bs.returnMaxPlayers();i++)
-        //    bs.players.add(new Player(i));
-        //get and add player(s) names
-
+       
         cells = new ArrayList<Rectangle>();
 
         cellnos = new int[row * col];
@@ -65,20 +69,16 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Metodo paintComponent - Muestra el componente en pantalla
+     * @param g  Graphics
+     */
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;//.create();
 
-        /*
-		int sw = getSize().width;
-		int sh = getSize().height;
-		int a = (int) (0.75*((sw > sh)?sh:sw));
-		
-		//Point start = new Point(0,0);
-		//Point end = new Point(100,100);
-		
-		g.drawLine(0,0,sw, sh);
-         */
+        super.paintComponent(g);
+
+        Graphics2D g2d = (Graphics2D) g;
+
         //Create cells
         int width = getWidth();
         int height = getHeight();
@@ -146,6 +146,13 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Metodo que dibuja las celulas y los números
+     * 
+     * @param g2d Graphics2D
+     * @param cellWidth int
+     * @param cellHeight int
+     */
     private void drawCellsAndNumbers(Graphics2D g2d, int cellWidth, int cellHeight) {
         g2d.setColor(Color.BLUE);
         int i = 0;                                // i is our visible numbering
@@ -153,8 +160,7 @@ public class BoardDrawing extends JPanel {
 
             String message = "" + cellnos[i];
             g2d.drawString(message, (int) cell.getCenterX(), (int) cell.getCenterY());
-            //g2d.setColor(Color.red);
-
+           
             //draw player position
             for (int pl = 0; pl < bs.maxPlayers; pl++) {
                 if (bs.players.get(pl).getPosition() == cellnos[i]) {                         //only one player considered here
@@ -179,13 +185,11 @@ public class BoardDrawing extends JPanel {
         }
     }
 
-    /*
-	public void ensurePlayerPosition(){
-		for(Portal port :portals){
-			if(player == port.returnStart())
-				player = port.returnEnd();
-		}
-	}
+    /**
+     * Asegurar la posición del jugador
+     * 
+     * @param pnos int
+     * @return String
      */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
@@ -202,10 +206,11 @@ public class BoardDrawing extends JPanel {
         return message;
     }
 
-    /*
-	public void setPlayer(int a){
-		player = a;
-	}
+    /**
+     * Asignar valores del jugador
+     *
+     * @param a int
+     * @param pnos int
      */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);

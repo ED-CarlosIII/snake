@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author alumno
+ */
 public class BoardScreen extends JPanel {
 
     /**
@@ -41,26 +45,42 @@ public class BoardScreen extends JPanel {
     private static final String BTN_NAME_QUIT = "Quit";
     private static final String BTN_NAME_NEW_GAME = "New Game";
   
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, MSG_QUIT_BUTTON) == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
     
-
+    /**
+     *
+     */
     public void goButtonActionListener() {
         mw.showCard(CARD_NAME);
         mw.resetAll();
     }
     
+    /**
+     *
+     * @param m
+     */
     public void setMaxPlayers(int m) {
         maxPlayers = m;
     }
 
+    /**
+     *
+     * @return
+     */
     public int returnMaxPlayers() {
         return maxPlayers;
     }
 
+    /**
+     *
+     */
     public void setUpPlayers() {
         players = new ArrayList<Player>();
         for (int i = 0; i < returnMaxPlayers(); i++) {
@@ -81,6 +101,11 @@ public class BoardScreen extends JPanel {
 
     }
 
+    /**
+     *
+     * @param mw
+     * @param i
+     */
     public BoardScreen(MainWindow mw, int x) {
         this.mw = mw;
 
