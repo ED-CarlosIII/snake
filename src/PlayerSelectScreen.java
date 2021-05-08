@@ -42,8 +42,9 @@ public class PlayerSelectScreen extends JPanel {
 	
 	public PlayerSelectScreen(MainWindow mw){
 		this.mw = mw;
+            BoxLayout boxLayout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
 		
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		setLayout(boxLayout);
 		
 		JLabel mess = new JLabel("Select Players: ");
 		add(mess);
@@ -67,38 +68,33 @@ public class PlayerSelectScreen extends JPanel {
 		add(opt1);
 		add(opt2);
 		add(opt3);
+            ActionListener actionListenerPO = new ActionListener(){
+                public void actionPerformed(ActionEvent event){
+                    playerOptions();
+                }
+            };
 
-		opt1.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				playerOptions();
-			}
-		});
-		opt2.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				playerOptions();
-			}
-		});
+		opt1.addActionListener(actionListenerPO);
+		opt2.addActionListener(actionListenerPO);
 		
-		opt3.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				playerOptions();
-			}
-		});
+		opt3.addActionListener(actionListenerPO);
 		
 		go = new JButton("Customize Board");
 		quit = new JButton("Back");	
+            ActionListener actionListenerGo = new ActionListener(){
+                public void actionPerformed(ActionEvent event){
+                    goButtonActionListener();
+                }
+            };
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				goButtonActionListener();
-			}
-		});
+		go.addActionListener(actionListenerGo);
+            ActionListener actionListenerQuit = new ActionListener(){
+                public void actionPerformed(ActionEvent event){
+                    quitButtonActionListener();
+                }
+            };
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				 quitButtonActionListener();
-			}
-		});
+		quit.addActionListener(actionListenerQuit);
 		
 		add(go);
 		add(quit);
