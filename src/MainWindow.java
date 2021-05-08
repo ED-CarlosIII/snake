@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author jfran
+ */
 public class MainWindow extends JFrame {
 
     JPanel cards;

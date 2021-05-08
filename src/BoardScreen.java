@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,11 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author jfran
+ */
 public class BoardScreen extends JPanel {
 
-    /**
-     *
-     */
+    
     int player = 0;
     BoardDrawing bd;
     JPanel stats;
@@ -36,26 +37,42 @@ public class BoardScreen extends JPanel {
     JButton go;
     JButton quit;
 
+    /**
+     * Salir Boton Action Listener
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     * Action Listener del Boton
+     */
     public void goButtonActionListener() {
         mw.showCard("Two");
         //mw.setBoard();
         mw.resetAll();
     }
 
+    /**
+     * ASignar el número máximo de jugadores
+     * @param m numero de player
+     */
     public void setMaxPlayers(int m) {
         maxPlayers = m;
     }
-
+    /**
+     * 
+     * @return Devuelve el máximo de jugadores
+     */
     public int returnMaxPlayers() {
         return maxPlayers;
     }
 
+    /**
+     * Ajustes del player
+     */
     public void setUpPlayers() {
         players = new ArrayList<Player>();
         for (int i = 0; i < returnMaxPlayers(); i++) {
@@ -76,6 +93,10 @@ public class BoardScreen extends JPanel {
 
     }
 
+    /**
+     * Pantalla del tablero
+     * @param mw Main Window 
+     */
     public BoardScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -135,7 +156,15 @@ public class BoardScreen extends JPanel {
 
         success = new JLabel("");
 
-        //modify action listener to move between the n players 
+        MovimientoDadosPlayer();
+
+    }
+
+    /**
+     * Dados y Player
+     */
+    public void MovimientoDadosPlayer() {
+        //modify action listener to move between the n players
         //outside needs to know some amount of player data which may be got be asking and passing to inside
         //no need to create separate stores outside
         //may need more functions inside to communicate for this reason
@@ -178,7 +207,6 @@ public class BoardScreen extends JPanel {
 
         stats.add(extraInfo);
         stats.add(success);
-
     }
 
 }

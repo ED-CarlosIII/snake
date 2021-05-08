@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+/**
+ * 
+ * @author jfran
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -23,6 +27,12 @@ public class BoardDrawing extends JPanel {
 
     BoardScreen bs;
 
+    /**
+     * Dibujar el tablero
+     * @param row numero de filas
+     * @param col numero de columnas
+     * @param bs tablero pantalla
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -57,6 +67,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Dibuja los componentes
+     * @param g graficos
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -110,6 +124,14 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Dibuja la posicion del jugador
+     * @param i numero que se usará para el for
+     * @param g2d gráficos 2D
+     * @param cell Celdas de tipo rectángulo
+     * @param cellWidth anchura de la celda
+     * @param cellHeight altura de la celda
+     */
     public void drawPlayerPosition(int i, Graphics2D g2d, Rectangle cell, int cellWidth, int cellHeight) {
         //draw player position
         for (int pl = 0; pl < bs.maxPlayers; pl++) {
@@ -133,6 +155,10 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Dibuja las serpientes y las escaleras
+     * @param g2d Gráficos 2D
+     */
     public void drawingSnakesAndLadders(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.portals) {
@@ -163,6 +189,11 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Asegura la posicion del jugador
+     * @param pnos numero de pnos
+     * @return 
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -178,6 +209,11 @@ public class BoardDrawing extends JPanel {
         return message;
     }
 
+    /**
+     * Hace el jugador
+     * @param a numero de inicio posicion
+     * @param pnos -
+     */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }

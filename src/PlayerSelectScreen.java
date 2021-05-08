@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 //needs massive aesthetic rewrites
+/**
+ * 
+ * @author jfran
+ */
 public class PlayerSelectScreen extends JPanel {
 
     JButton go;

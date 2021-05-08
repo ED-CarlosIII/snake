@@ -2,6 +2,10 @@
 import java.awt.Point;
 import java.util.Random;
 
+/**
+ * 
+ * @author jfran
+ */
 public class Portal {
 
     private int nature; //-1 for snake , +1 for ladder
