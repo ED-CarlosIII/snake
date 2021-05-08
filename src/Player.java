@@ -14,7 +14,7 @@ public class Player {
 
     /**
      *
-     * @param i
+     * @param no int
      */
     public Player(int no) {
         name = "Player " + no;
@@ -23,7 +23,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return int
      */
     public int getPosition() {
         return playerPosn;
@@ -31,7 +31,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return String
      */
     public String getName() {
         return name;
@@ -63,7 +63,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return Color
      */
     public Color returnPlayerColor() {
         return playerColor;
@@ -79,7 +79,7 @@ public class Player {
 
     /**
      *
-     * @return
+     * @return int
      */
     public int getPlayerScore() {
         return playerScore;

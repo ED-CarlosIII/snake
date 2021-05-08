@@ -4,17 +4,17 @@ import java.util.Random;
 
 /**
  *
- * @author alumno
+ * @author Ana Belen Madrid Garcia
  */
 public class Portal {
 
-    private int nature; //-1 for snake , +1 for ladder
-    private int start;
-    private int end;
+    private final int nature; //-1 for snake , +1 for ladder
+    private final int start;
+    private final int end;
 
     /**
      *
-     * @param i
+     * @param maxCells
      */
     public Portal(int maxCells) {   //creates random portals
         Random luck = new Random();
@@ -29,7 +29,7 @@ public class Portal {
 
     /**
      *
-     * @return
+     * @return int
      */
     public int returnNature() {
         return nature;
@@ -37,7 +37,7 @@ public class Portal {
 
     /**
      *
-     * @return
+     * @return int
      */
     public int returnStart() {
         return start;
@@ -45,7 +45,7 @@ public class Portal {
 
     /**
      *
-     * @return
+     * @return int
      */
     public int returnEnd() {
         return end;

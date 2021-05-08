@@ -14,7 +14,7 @@ import javax.swing.JRadioButton;
 
 /**
  *
- * @author alumno
+ * @author Ana Belen Madrid Garcia
  */
 public class PlayerSelectScreen extends JPanel {
 

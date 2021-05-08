@@ -1,5 +1,4 @@
 
-import java.awt.Color;
 import static java.awt.Color.blue;
 import static java.awt.Color.green;
 import static java.awt.Color.red;
@@ -14,7 +13,6 @@ import static javax.swing.BoxLayout.X_AXIS;
 import static javax.swing.BoxLayout.Y_AXIS;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.OK_OPTION;
 import static javax.swing.JOptionPane.showConfirmDialog;
 import javax.swing.JPanel;
@@ -124,7 +122,7 @@ public class BoardScreen extends JPanel {
      */
     public void goButtonActionListener() {
         mw.showCard("Two");
-        //mw.setBoard();
+        
         mw.resetAll();
     }
 
@@ -189,9 +187,7 @@ public class BoardScreen extends JPanel {
 
         players = new ArrayList<>();
         players.add(new Player(currPlayer));
-        //for(int i = 0;i < returnMaxPlayers();i++)
-        //    players.add(new Player(i));
-        //get and add player(s) names
+        
 
         setLayout(new BoxLayout(this, Y_AXIS));
 
@@ -199,7 +195,7 @@ public class BoardScreen extends JPanel {
 
         bd = new BoardDrawing(x, y, this);
         bd.setVisible(true);
-        //bd.setSize(getSize());
+      
 
         int sw = getSize().width;
         int sh = getSize().height;
@@ -216,8 +212,7 @@ public class BoardScreen extends JPanel {
         stats.add(go);
         stats.add(quit);
 
-        //String playername = "Player 1";
-        //currPlayer = 0;
+     
         whichPlayer = new JLabel();
         whichPlayer.setText(players.get(currPlayer).getName());
         stats.add(whichPlayer);
@@ -231,30 +226,33 @@ public class BoardScreen extends JPanel {
         //no need to create separate stores outside
         //may need more functions inside to communicate for this reason
         roll = new JButton("Roll the die!");
-        roll.addActionListener((ActionEvent e) -> {
-            Random die = new Random();
-            int a1 = die.nextInt(6) + 1;
-            dieResults.setText("You rolled a " + a1);
-            player += a1;
-            //bd.setPlayer(player);
-            bd.setPlayer(a1, currPlayer);
-            //bd.ensurePlayerPosition();
-            extraInfo.setText(bd.ensurePlayerPosition(currPlayer));
-            bd.repaint();
-            players.get(currPlayer).incPlayerScore(1);
-            for (Player p : players) {
-                if (p.getPosition() >= x * y - 1) {
+        roll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Random die = new Random();
+                int a1 = die.nextInt(6) + 1;
+                dieResults.setText("You rolled a " + a1);
+                player += a1;
+                //bd.setPlayer(player);
+                bd.setPlayer(a1, currPlayer);
+                //bd.ensurePlayerPosition();
+                extraInfo.setText(bd.ensurePlayerPosition(currPlayer));
+                bd.repaint();
+                players.get(currPlayer).incPlayerScore(1);
+                players.stream().filter(p -> (p.getPosition() >= x * y - 1)).map(p -> {
                     success.setText("And the winner is: " + p.getName() + "\nYour score: " + p.getPlayerScore());
+                    return p;
+                }).forEachOrdered(_item -> {
                     roll.setVisible(false);
+                });
+                if (currPlayer == maxPlayers - 1) {
+                    currPlayer = 0;
+                } else {
+                    currPlayer += 1;
                 }
+                //currPlayer = players.size() - 1;
+                whichPlayer.setText(players.get(currPlayer).getName());
             }
-            if (currPlayer == maxPlayers - 1) {
-                currPlayer = 0;
-            } else {
-                currPlayer += 1;
-            }
-            //currPlayer = players.size() - 1;
-            whichPlayer.setText(players.get(currPlayer).getName());
         });
         roll.setVisible(true);
 

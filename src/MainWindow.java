@@ -1,10 +1,6 @@
 
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -129,8 +125,7 @@ public class MainWindow extends JFrame {
         cards.add(s3, "Three");
         cards.add(s4, "Four");
 
-        //cards.add(jp2,"Two");
-        //cards.add(jp4,"Four");
+       
         cards.add(jp5, "Five");
 
         cl = (CardLayout) (cards.getLayout());

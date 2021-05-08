@@ -37,7 +37,7 @@ public class BoardDrawing extends JPanel {
      * @see ArrayList<Rectangle> cells
      */
     ArrayList<Rectangle> cells;
-    //int player;
+    
     /**
      * @see int[] cellnos
      */
@@ -46,8 +46,7 @@ public class BoardDrawing extends JPanel {
      * @see bs
      */
     BoardScreen bs;
-    //ArrayList<Portal> portals;
-    //ArrayList<Player> players;
+    
 
     /**
      * Constructor de la clase DibujarTablero que recibe varios parametros
@@ -62,11 +61,7 @@ public class BoardDrawing extends JPanel {
         this.bs = bs;
         this.row = row;
         this.col = col;
-        //player = 0;
-        //bs.players = new ArrayList<Player>();
-        //for(int i = 1;i <= bs.returnMaxPlayers();i++)
-        //    bs.players.add(new Player(i));
-        //get and add player(s) names
+        
 
         cells = new ArrayList<>();
 
@@ -106,18 +101,7 @@ public class BoardDrawing extends JPanel {
         super.paintComponent(g);   
         Graphics2D g2d = (Graphics2D) g;
 
-             //.create();
-
-             /*
-		int sw = getSize().width;
-		int sh = getSize().height;
-		int a = (int) (0.75*((sw > sh)?sh:sw));
-		
-		//Point start = new Point(0,0);
-		//Point end = new Point(100,100);
-		
-		g.drawLine(0,0,sw, sh);
-              */
+            
              
         //Create cells
         int width = getWidth();
@@ -143,14 +127,14 @@ public class BoardDrawing extends JPanel {
         }
 
         g2d.setColor(white);
-        for (Rectangle cell : cells) {
+        cells.forEach(cell -> {
             g2d.fill(cell);
-        }
+        });
 
         g2d.setColor(BLUE);
-        for (Rectangle cell : cells) {
+        cells.forEach(cell -> {
             g2d.draw(cell);
-        }
+        });
 
         //Draw cells and numbers
         //may have to modify program based on number of players
@@ -161,7 +145,7 @@ public class BoardDrawing extends JPanel {
             String message = "" + cellnos[i];
             g2d.drawString(message, (int) cell.getCenterX(), (int) cell.getCenterY());
             
-             //g2d.setColor(Color.red);
+             
 
             //draw player position
             for (int pl = 0; pl < bs.maxPlayers; pl++) {
@@ -240,14 +224,6 @@ public class BoardDrawing extends JPanel {
         g2d.setColor(blue);
     }
 
-      /*
-	  public void ensurePlayerPosition(){
-		for(Portal port :portals){
-			if(player == port.returnStart())
-				player = port.returnEnd();
-		}
-	   }
-      */
 
     /**
      * Método para asegurar posicion jugador que devolverá un mensaje segun convenga.
@@ -272,12 +248,6 @@ public class BoardDrawing extends JPanel {
         }
         return message;
     }
-
-    /*
-	public void setPlayer(int a){
-		player = a;
-	}
-     */
 
     /**
      * Método para establecer a un jugador

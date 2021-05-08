@@ -1,10 +1,9 @@
 
-import javax.swing.SwingUtilities;
 import static javax.swing.SwingUtilities.invokeLater;
 
 /**
  *
- * @author alumno
+ * @author Ana Belen Madid Garcia
  */
 public class Main {
 
