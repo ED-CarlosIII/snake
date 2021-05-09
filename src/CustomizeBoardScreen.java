@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.logging.Logger;
+import static java.util.logging.Logger.getLogger;
 import javax.swing.BoxLayout;
 import static javax.swing.BoxLayout.PAGE_AXIS;
 import javax.swing.JButton;
@@ -11,6 +12,8 @@ import javax.swing.JPanel;
  * @author andre
  */
 public class CustomizeBoardScreen extends JPanel {
+
+    private static final Logger LOG = getLogger(CustomizeBoardScreen.class.getName());
 	JButton go;
 	JButton quit;
 	MainWindow mw;
