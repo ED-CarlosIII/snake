@@ -1,6 +1,10 @@
 
 import javax.swing.SwingUtilities;
 
+/**
+ *
+ * @author anddi
+ */
 public class Main {
 
     /**

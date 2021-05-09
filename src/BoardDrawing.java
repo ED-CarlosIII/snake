@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author anddi
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     *
+     * @param row int
+     * @param col int
+     * @param bs int
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -37,7 +48,7 @@ public class BoardDrawing extends JPanel {
         //    bs.players.add(new Player(i));
         //get and add player(s) names
 
-        cells = new ArrayList<Rectangle>();
+        cells = new ArrayList<Rectangle>(); 
 
         cellnos = new int[row * col];
         for (int i = 0; i < row; i++) {
@@ -65,6 +76,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     *
+     * @param g Graphics 
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -171,7 +186,15 @@ public class BoardDrawing extends JPanel {
         }
 
     }
-
+    
+    /** 
+    *
+    * @param g2d graphics2D
+    * @param pl int 
+    * @param cell Rectangle
+    * @param cellWidth int 
+    * @param cellHeight int
+    */
     private void changeColor(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
         //only one player considered here
 
@@ -188,6 +211,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     *
+     * @param pnos int
+     * @return
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -208,6 +238,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     *
+     * @param a int 
+     * @param pnos int 
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
