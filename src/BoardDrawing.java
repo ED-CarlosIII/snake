@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class BoardDrawing extends JPanel {
 
     /**
-     *
+     *declaración de variables de clase
      */
     int b = 0;
     int row = 8;
