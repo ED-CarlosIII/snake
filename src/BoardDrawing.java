@@ -1,4 +1,8 @@
-
+/**
+ * @author Mario Lasheras Almeda
+ * @author CIFP Carlos III
+ * @version tareaEDD/UT5
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
