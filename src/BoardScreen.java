@@ -9,9 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+/**
+ * 
+ * @author crstian
+ */
 
+public class BoardScreen extends JPanel {
 
-public class BoardScreen extends JPanel{
 
 	/**
 	 * 
@@ -36,39 +40,66 @@ public class BoardScreen extends JPanel{
 	JButton go;
 	JButton quit;
 
-	public void quitButtonActionListener(){
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
 		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
 	        System.exit(0);
 	}
 	
-	public void goButtonActionListener(){
+    /**
+     *
+     */
+    public void goButtonActionListener(){
 		mw.showCard("Two");
 		//mw.setBoard();
 		mw.resetAll();
 	}
 	
-	public void setMaxPlayers(int m){
+    /**
+     *
+     * @param m
+     */
+    public void setMaxPlayers(int m){
 		maxPlayers = m;
 	}
 	
-	public int returnMaxPlayers(){
+    /**
+     *
+     * @return
+     */
+    public int returnMaxPlayers(){
 		return maxPlayers;
 	}
 	
-	public void setUpPlayers(){
+    /**
+     *
+     */
+    public void setUpPlayers(){
 		players = new ArrayList<Player>();
 		for(int i = 0;i < returnMaxPlayers();i++)
 		    players.add(new Player(i));
 		//get and add player(s) names
 		
 		//manual color entry - automate later
-		if(0 < returnMaxPlayers())players.get(0).setPlayerColor(Color.green);
-		if(1 < returnMaxPlayers())players.get(1).setPlayerColor(Color.blue);
-		if(2 < returnMaxPlayers())players.get(2).setPlayerColor(Color.red);
-		
+		if(0 < returnMaxPlayers()){
+			players.get(0).setPlayerColor(Color.green);
+		}
+		if(1 < returnMaxPlayers()){
+			players.get(1).setPlayerColor(Color.blue);
+		}
+		if(2 < returnMaxPlayers()){
+			players.get(2).setPlayerColor(Color.red);
+		}
 	}
+	 /**
+     *
+     * @param mw
+     */
+
  	
-	public BoardScreen(MainWindow mw){
+	public BoardScreen(MainWindow mw) {
 		this.mw = mw;
 		
 		currPlayer = 0;
@@ -76,14 +107,14 @@ public class BoardScreen extends JPanel{
 		go = new JButton("New Game");
 		quit = new JButton("Quit");	
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
+		go.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
 				goButtonActionListener();
 			}
 		});
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
+		quit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
 				 quitButtonActionListener();
 			}
 		});
@@ -98,7 +129,7 @@ public class BoardScreen extends JPanel{
 		
 		x = y = 8;
 		
-	    bd = new BoardDrawing(x, y,this);
+	    bd = new BoardDrawing(x, y, this);
 		bd.setVisible(true);
 		//bd.setSize(getSize());
 		
@@ -125,7 +156,7 @@ public class BoardScreen extends JPanel{
 		//currPlayer = 0;
 		
 		whichPlayer = new JLabel();
-		whichPlayer.setText(players.get(currPlayer).returnName());
+		whichPlayer.setText(players.get(currPlayer).getName());
 		stats.add(whichPlayer);
 		
 		extraInfo = new JLabel();
@@ -137,8 +168,8 @@ public class BoardScreen extends JPanel{
 		//no need to create separate stores outside
 		//may need more functions inside to communicate for this reason
 		roll = new JButton("Roll the die!");
-		roll.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+		roll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				Random die = new Random();
 				int a = die.nextInt(6) + 1;
 				dieResults.setText("You rolled a " + a);
@@ -152,21 +183,21 @@ public class BoardScreen extends JPanel{
 				players.get(currPlayer).incPlayerScore(1);
 				
 				for(Player p: players){
-					if(p.returnPosition() >= x*y-1){
-						success.setText("And the winner is: " + p.returnName() + "\nYour score: " + p.returnPlayerScore());
+					if(p.getPosition() >= x*y-1){
+						success.setText("And the winner is: " + p.getName() + "\nYour score: " + p.getPlayerScore());
 					    roll.setVisible(false);
 					}
 				}
 				
 				
 				
-				if(currPlayer == maxPlayers - 1)
+				if(currPlayer == maxPlayers - 1){
 					currPlayer = 0;
-				else
+				} else {
 					currPlayer += 1;
-				
+				}
 				//currPlayer = players.size() - 1;
-				whichPlayer.setText(players.get(currPlayer).returnName());
+				whichPlayer.setText(players.get(currPlayer).getName());
 				
 			}
 		});
