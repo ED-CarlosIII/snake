@@ -7,14 +7,17 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author David Gómez Mora
+ */
+
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
 public class BoardDrawing extends JPanel {
 
-    /**
-     *
-     */
+    
     int b = 0;
     int row = 8;
     int col = 8;
@@ -26,11 +29,19 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Método constructor BoardDrawing
+     * @param row Variable de tipo entero
+     * @param col Variable de tipo entero
+     * @param bs Variable de tipo BoardScreen
+     */
+    
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
         this.row = row;
         this.col = col;
+        
         //player = 0;
         //bs.players = new ArrayList<Player>();
         //for(int i = 1;i <= bs.returnMaxPlayers();i++)
@@ -65,6 +76,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Método paintComponent que determina el tamaño y color de las celdas
+     * @param g 
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -120,7 +135,7 @@ public class BoardDrawing extends JPanel {
             String message = "" + cellnos[i];
             g2d.drawString(message, (int) cell.getCenterX(), (int) cell.getCenterY());
             //g2d.setColor(Color.red);
-            
+
             posicionJugador(i, g2d, cell, cellWidth, cellHeight);
         }
 
@@ -128,6 +143,10 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    /**
+     * Método serpientesYEscaleras para dibujar las serpientes y las escaleras
+     * @param g2d 
+     */
     private void serpientesYEscaleras(Graphics2D g2d) {
         //Drawing snakes and ladders
         for (Portal port : bs.getPortals()) {
@@ -158,6 +177,14 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+     * Método posicionJugador con el que podremos determinar la posición de cada uno de los jugadores durante la partida
+     * @param i
+     * @param g2d
+     * @param cell
+     * @param cellWidth
+     * @param cellHeight 
+     */
     private void posicionJugador(int i, Graphics2D g2d, Rectangle cell, int cellWidth, int cellHeight) {
         //draw player position
         for (int pl = 0; pl < bs.getMaxPlayers(); pl++) {
@@ -167,7 +194,7 @@ public class BoardDrawing extends JPanel {
                 g2d.setColor(Color.blue);
             }
         }
-        
+
         if (cellnos[i] == row * col - 1) {
             for (int pl = 0; pl < bs.getMaxPlayers(); pl++) {
                 if (bs.getPlayers().get(pl).getPosition() >= cellnos[i]) {                         //only one player considered here
@@ -188,6 +215,12 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+    
+    /**
+     * Método ensurePlayerPosition de nos devolverá un mensaje indicando la posición del jugador
+     * @param pnos
+     * @return Nos devolverá un valor de tipo String
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.getPortals()) {
@@ -207,6 +240,12 @@ public class BoardDrawing extends JPanel {
 	public void setPlayer(int a){
 		player = a;
 	}
+     */
+    
+    /**
+     * Método setPlayer
+     * @param a
+     * @param pnos 
      */
     public void setPlayer(int a, int pnos) {
         bs.getPlayers().get(pnos).incPosition(a);

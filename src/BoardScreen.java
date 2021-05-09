@@ -11,6 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author David Gómez Mora
+ */
+
 public class BoardScreen extends JPanel {
 
     /**
