@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 //note: unification of colors not done
 
 /**
- *
- * @author Cristian Gutierrez
+ * 
+ * @author crstian
  */
 
 
@@ -202,7 +202,7 @@ public class BoardDrawing extends JPanel{
      * @param pl
      * @param cell 
      * @param cellWidth 
-     * @param cellHeight 
+     * @param cellHeight
 	 */		
 	}
 	/*
@@ -218,6 +218,8 @@ public class BoardDrawing extends JPanel{
          * 
          * @param pnos
          * @return 
+         * 
+         * Nos muestra información en el tablero y ver si nos ha pillado la serpiente
          */
 	public String ensurePlayerPosition(int pnos){
 		String message = "";
@@ -244,6 +246,7 @@ public class BoardDrawing extends JPanel{
      *
      * @param a 
      * @param pnos 
+     * Cambiamos de usuario
      */
 	 
 	public void setPlayer(int a, int pnos){

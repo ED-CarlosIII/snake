@@ -9,7 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ * 
+ * @author crstian
+ */
 public class WelcomeScreen extends JPanel{
 	JLabel title;
 	JButton go;

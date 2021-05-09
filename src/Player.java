@@ -1,6 +1,9 @@
 import java.awt.Color;
 
-
+/**
+ * 
+ * @author crstian
+ */
 public class Player {
 	private String name;
 	private int playerPosn;
