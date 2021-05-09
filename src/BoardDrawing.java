@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author andre
+ * @author Marín Talavera, Andrés Manuel
  */
 public class BoardDrawing extends JPanel {
 
@@ -40,9 +40,9 @@ public class BoardDrawing extends JPanel {
 
     /**
      *
-     * @param row
-     * @param col
-     * @param bs
+     * @param row row es tipo int
+     * @param col col es tipo int
+     * @param bs bs es tipo int
      */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
@@ -82,7 +82,10 @@ public class BoardDrawing extends JPanel {
         }
 
     }
-
+    /**
+     * 
+     * @param g  de la clase Graphics
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -190,8 +193,15 @@ public class BoardDrawing extends JPanel {
         }
 
     }
+    /**
+     * 
+     * @param g2d graphics
+     * @param pl entero
+     * @param cell rectangulo
+     * @param cellWidth ancho celda
+     * @param cellHeight altura celda     */
 
-    private void changePlayerColor(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
+    public void changePlayerColor(Graphics2D g2d, int pl, Rectangle cell, int cellWidth, int cellHeight) {
         //only one player considered here
 
         g2d.setColor(bs.players.get(pl).getPlayerColor());        //change to player color
@@ -210,8 +220,8 @@ public class BoardDrawing extends JPanel {
 
     /**
      *
-     * @param pnos
-     * @return
+     * @param pnos entero: posicion del jugador
+     * @return mensaje tipo string
      */
 
     public String ensurePlayerPosition(int pnos) {
@@ -237,8 +247,8 @@ public class BoardDrawing extends JPanel {
 
     /**
      *
-     * @param a
-     * @param pnos
+     * @param a entero
+     * @param pnos entero
      */
 
     public void setPlayer(int a, int pnos) {

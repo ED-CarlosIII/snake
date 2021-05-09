@@ -1,47 +1,85 @@
 import java.awt.Color;
 
-
+/**
+ *
+ * @author andre
+ */
 public class Player {
 	private String name;
 	private int playerPosn;
 	private int playerScore;
 	private Color playerColor;
 	
-	public Player(int no){
+    /**
+     *
+     * @param no no
+     */
+    public Player(int no){
 	    name = "Player " + no;
 	    playerPosn = 0;
 	}
 	
-	public int getPosition(){
+    /**
+     *
+     * @return
+     */
+    public int getPosition(){
 		return playerPosn;
 	}
 	
-
-	public String getName(){
+    /**
+     *
+     * @return
+     */
+    public String getName(){
 		return name;
 	}
 	
-	public void setPosition(int posn){
+    /**
+     *
+     * @param posn
+     */
+    public void setPosition(int posn){
 		playerPosn = posn;
 	}
 	
-	public void incPosition(int posn){
+    /**
+     *
+     * @param posn
+     */
+    public void incPosition(int posn){
 		playerPosn += posn;
 	}
 	
-	public void setPlayerColor(Color c){
+    /**
+     *
+     * @param c
+     */
+    public void setPlayerColor(Color c){
 		playerColor = c;
 	}
 	
-	public Color getPlayerColor(){
+    /**
+     *
+     * @return
+     */
+    public Color getPlayerColor(){
 		return playerColor;
 	}
 	
-	public void incPlayerScore(int a){
+    /**
+     *
+     * @param a
+     */
+    public void incPlayerScore(int a){
 		playerScore += a;
 	}
 	
-	public int getPlayerScore(){
+    /**
+     *
+     * @return
+     */
+    public int getPlayerScore(){
 		return playerScore;
 	}
 

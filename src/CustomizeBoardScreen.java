@@ -20,7 +20,7 @@ public class CustomizeBoardScreen extends JPanel {
 
     /**
      *
-     * @param mw
+     * @param mw objeto de la clase MainWindow.
      */
     public CustomizeBoardScreen(MainWindow mw) {
         this.mw = mw;
@@ -42,7 +42,7 @@ public class CustomizeBoardScreen extends JPanel {
     }
 	
     /**
-     *
+     * Este método no se que hace
      */
     public void quitButtonActionListener(){
 		mw.showCard("Two");
