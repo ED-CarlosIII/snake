@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author alba
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Constructor de la clase BoardDrawing
+     * @param row fila
+     * @param col columna
+     * @param bs boardscreen
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -65,6 +76,11 @@ public class BoardDrawing extends JPanel {
 
     }
 
+    
+    /**
+     * Pinta los componentes del tablero.
+     * @param g Componente gráfico.
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -142,6 +158,12 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * Genera un mensaje dependiendo de la posición del personaje.
+     * @param pnos posición del personaje
+     * @return mensaje generado
+     */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -162,14 +184,34 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * Incrementa la posición del personaje en a.
+     * @param a incremento.
+     * @param pnos posición actual.
+     */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
     
+    /**
+     * Calcula el offset de una celda
+     * @param sizeTotal tamaño total dimensión
+     * @param dimension dimensión
+     * @param cellSize tamaño de celda
+     * @return offset resultante
+     */
     private int calculateOffset(int sizeTotal, int dimension, int cellSize){
         return (sizeTotal - (dimension * cellSize)) / 2;
     }
     
+    /**
+     * Añade las celdas al tablero si está vacío.
+     * @param xOffset offset x
+     * @param yOffset offset y
+     * @param cellWidth ancho celda
+     * @param cellHeight alto celda
+     */
     private void addCellsIfEmpty(int xOffset, int yOffset, int cellWidth, int cellHeight){
         if (cells.isEmpty()) {
             for (int i = 0; i < row; i++) {
@@ -185,12 +227,25 @@ public class BoardDrawing extends JPanel {
         }
     }
     
+    /**
+     * Dibuja el personaje en el tablero
+     * @param cell celda a dibujar el personaje
+     * @param g2d componente gráfico
+     * @param pl posición
+     * @param cellWidth ancho de celda
+     * @param cellHeight alto de celda
+     */
     private void drawPlayer(Rectangle cell, Graphics2D g2d, int pl, int cellWidth, int cellHeight){
         g2d.setColor(bs.players.get(pl).getPlayerColor());        //change to player color
         g2d.fillRect(cell.getLocation().x + pl * cellWidth / 4, cell.getLocation().y, cellWidth / 4, cellHeight / 4);//change to player position
         g2d.setColor(Color.blue);
     }
     
+    /**
+     * Dibuja el portal en el tablero
+     * @param port portal correspondiente
+     * @param g2d componente gráfico
+     */
     private void drawPort(Portal port, Graphics2D g2d){
         if (port.returnNature() == -1) {
                 g2d.setColor(Color.red);
