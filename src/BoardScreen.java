@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -125,7 +124,7 @@ public class BoardScreen extends JPanel{
 		//currPlayer = 0;
 		
 		whichPlayer = new JLabel();
-		whichPlayer.setText(players.get(currPlayer).returnName());
+		whichPlayer.setText(players.get(currPlayer).getName());
 		stats.add(whichPlayer);
 		
 		extraInfo = new JLabel();
@@ -152,8 +151,8 @@ public class BoardScreen extends JPanel{
 				players.get(currPlayer).incPlayerScore(1);
 				
 				for(Player p: players){
-					if(p.returnPosition() >= x*y-1){
-						success.setText("And the winner is: " + p.returnName() + "\nYour score: " + p.returnPlayerScore());
+					if(p.getPosition() >= x*y-1){
+						success.setText("And the winner is: " + p.getName() + "\nYour score: " + p.getPlayerScore());
 					    roll.setVisible(false);
 					}
 				}
@@ -166,7 +165,7 @@ public class BoardScreen extends JPanel{
 					currPlayer += 1;
 				
 				//currPlayer = players.size() - 1;
-				whichPlayer.setText(players.get(currPlayer).returnName());
+				whichPlayer.setText(players.get(currPlayer).getName());
 				
 			}
 		});
