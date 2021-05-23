@@ -10,7 +10,10 @@ import javax.swing.JPanel;
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
 
-
+/**
+ * Dibuja un tablero de juego
+ * @author danim
+ */
 public class BoardDrawing extends JPanel{
 
 	/**
@@ -27,7 +30,13 @@ public class BoardDrawing extends JPanel{
 	//ArrayList<Portal> portals;
 	//ArrayList<Player> players;
 	
-	public BoardDrawing(int row, int col,BoardScreen bs){
+    /**
+     *
+     * @param i
+     * @param i1
+     * @param bs
+     */
+    public BoardDrawing(int row, int col,BoardScreen bs){
 		this.bs = bs;
 		
 		this.row = row;
@@ -184,6 +193,13 @@ public class BoardDrawing extends JPanel{
 		}
 	}
 	*/
+
+    /**
+     *
+     * @param pnos
+     * @return
+     */
+
 	public String ensurePlayerPosition(int pnos){
 		String message = "";
 		for(Portal port :bs.portals){
@@ -204,6 +220,13 @@ public class BoardDrawing extends JPanel{
 		player = a;
 	}
 	*/
+
+    /**
+     *
+     * @param a
+     * @param pnos
+     */
+
 	
 	public void setPlayer(int a, int pnos){
 		bs.players.get(pnos).incPosition(a);
