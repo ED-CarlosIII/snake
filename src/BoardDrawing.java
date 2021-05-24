@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ * Define el tamaño de nuestro tablero indicando filas y columnas
+ * @author alumno
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * Define la pantalla del tablero
+     * @param Fila (row)
+     * @param Columna (col)
+     * @param Pantalla de tablero (bs)
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -183,6 +194,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * Definición de la posición del jugador
+     * @param pnos
+     * @return Mensage de posición correcta o si te atrapa la serpiente
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -203,6 +221,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * Define la colocación del jugador
+     * @param a
+     * @param pnos
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
