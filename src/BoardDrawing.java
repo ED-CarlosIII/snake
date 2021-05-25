@@ -119,7 +119,13 @@ public class BoardDrawing extends JPanel {
         drawSnakesLadders(g2d);
 
     }
-
+    
+    /**
+    * Método para dibujar las celdas y numeros.
+    * @param g2d color
+    * @param cellWidth anchura de celda
+    * @param cellHeight altura de celda
+    */
     private void drawCellsNumbers(Graphics2D g2d, int cellWidth, int cellHeight) {
         g2d.setColor(Color.BLUE);
         int i = 0;                                // i is our visible numbering 
@@ -153,8 +159,11 @@ public class BoardDrawing extends JPanel {
         }
     }
 
+    /**
+    * Método para serpientes y escaleras
+    * @param g2d Graphics2D
+    */
     private void drawSnakesLadders(Graphics2D g2d) {
-        //Drawing snakes and ladders
         for (Portal port : bs.portals) {
             if (port.returnNature() == -1) {
                 g2d.setColor(Color.red);
@@ -182,15 +191,12 @@ public class BoardDrawing extends JPanel {
 
         }
     }
-
-    /*
-	public void ensurePlayerPosition(){
-		for(Portal port :portals){
-			if(player == port.returnStart())
-				player = port.returnEnd();
-		}
-	}
-     */
+    
+    /**
+    * Método para asegurar la posición del jugador
+    * @param pnos Posicion
+    * @return Mensaje
+    */
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -206,11 +212,11 @@ public class BoardDrawing extends JPanel {
         return message;
     }
 
-    /*
-	public void setPlayer(int a){
-		player = a;
-	}
-     */
+    /**
+    * Método para cambiar posicion de un jugador
+    * @param a Jugador
+    * @param pnos Posicion
+    */
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
