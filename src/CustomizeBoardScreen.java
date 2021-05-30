@@ -1,6 +1,5 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -33,25 +32,20 @@ public class CustomizeBoardScreen extends JPanel {
 		JLabel uc = new JLabel("Default: 8x8 board with 8 randomly generated snakes/ladders");
 		add(uc);
 	    
-	    setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-	    go = new JButton("Start Game");
+                setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+                go = new JButton("Start Game");
 		quit = new JButton("Back");	
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				goButtonActionListener();
-			}
-		});
+		go.addActionListener((ActionEvent event) -> {
+                    goButtonActionListener();
+                });
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				 quitButtonActionListener();
-			}
-		});
+		quit.addActionListener((ActionEvent event) -> {
+                    quitButtonActionListener();
+                });
 		
 		add(go);
-		add(quit);
-			
+		add(quit);	
 			
 	}
 }
