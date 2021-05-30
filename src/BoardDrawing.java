@@ -25,6 +25,8 @@ public class BoardDrawing extends JPanel{
 	//ArrayList<Portal> portals;
 	//ArrayList<Player> players;
 	
+        
+        //Dibuja el tablero de juego
 	public BoardDrawing(int row, int col,BoardScreen bs){
             this.bs = bs;
 		
@@ -62,6 +64,7 @@ public class BoardDrawing extends JPanel{
 	    }
 	}
 	
+        //Da color a los componentes del tablero
 	public void paintComponent(Graphics g){
             super.paintComponent(g);
             Graphics2D g2d = (Graphics2D) g;//.create();
@@ -126,7 +129,7 @@ public class BoardDrawing extends JPanel{
 		//draw player position
 		for(int pl = 0;pl < bs.maxPlayers;pl++)
                     if(bs.players.get(pl).getPosition() == cellnos[i]){ //only one player considered here	
-                        setColor(g2d, playerColor(pl)); //change to player color
+                        setColor(g2d, getPlayerColor(pl)); //change to player color
 			changeToPlayerPosition(g2d, cell, pl, cellWidth, cellHeight);//change to player position
 			setColor(g2d, Color.blue);
                     }
@@ -134,7 +137,7 @@ public class BoardDrawing extends JPanel{
                     if(cellnos[i] == row*col-1){
                         for(int pl = 0;pl < bs.maxPlayers;pl++)
                             if(bs.players.get(pl).getPosition() >= cellnos[i]){                         //only one player considered here
-                                setColor(g2d, playerColor(pl));        //change to player color
+                                setColor(g2d, getPlayerColor(pl));        //change to player color
         			changeToPlayerPosition(g2d, cell, pl, cellWidth, cellHeight);//change to player position
         			setColor(g2d, Color.blue);
                             }
@@ -167,22 +170,27 @@ public class BoardDrawing extends JPanel{
             }
         }
         
+        //Da color a un gráfico
         public void setColor(Graphics graph, Color color){
             graph.setColor(color);
         }
         
+        //Cambia a la posición del jugador
         public void changeToPlayerPosition(Graphics graph, Rectangle cell, int pl, int cellWidth, int cellHeight){
             graph.fillRect(cell.getLocation().x + pl*cellWidth/4, cell.getLocation().y, cellWidth/4, cellHeight/4);
         }
         
-        public Color playerColor(int pl){
+        //Obtiene el color del jugador
+        public Color getPlayerColor(int pl){
             return bs.players.get(pl).getPlayerColor();
         }
         
+        //Dibuja una línea en el gráfico
         public void drawLine(Graphics graph, int ind, int j){
             graph.drawLine((int)cells.get(ind).getCenterX(),(int) cells.get(ind).getCenterY(),(int) cells.get(j).getCenterX(),(int)cells.get(j).getCenterY());
         }
         
+        //Dibuja un String en el gráfico
         public void drawString(Graphics graph, String message, Rectangle cell){
             graph.drawString(message,(int)cell.getCenterX(),(int)cell.getCenterY());
         }
