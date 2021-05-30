@@ -12,12 +12,12 @@ public class Player {
 	    playerPosn = 0;
 	}
 	
-	public int returnPosition(){
+	public int getPosition(){
 		return playerPosn;
 	}
 	
 
-	public String returnName(){
+	public String getName(){
 		return name;
 	}
 	
@@ -33,7 +33,7 @@ public class Player {
 		playerColor = c;
 	}
 	
-	public Color returnPlayerColor(){
+	public Color getPlayerColor(){
 		return playerColor;
 	}
 	
@@ -41,7 +41,7 @@ public class Player {
 		playerScore += a;
 	}
 	
-	public int returnPlayerScore(){
+	public int getPlayerScore(){
 		return playerScore;
 	}
 
