@@ -39,8 +39,8 @@ public class WelcomeScreen extends JPanel{
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+		go = new JButton(NEW__GAME);
+		quit = new JButton(QUIT);	
 		
 		go.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
@@ -57,5 +57,7 @@ public class WelcomeScreen extends JPanel{
 		add(go);
 		add(quit);
 	}
+    private static final String QUIT = "Quit";
+    private static final String NEW__GAME = "New Game";
 
 }
