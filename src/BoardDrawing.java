@@ -11,7 +11,10 @@ import javax.swing.JPanel;
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
 
-
+/**
+ *
+ * @author hugaz
+ */
 public class BoardDrawing extends JPanel{
     
 	int b = 0;
@@ -28,6 +31,13 @@ public class BoardDrawing extends JPanel{
 	
         
         //Dibuja
+
+    /**
+     *
+     * @param row
+     * @param col
+     * @param bs
+     */
 	public BoardDrawing(int row, int col,BoardScreen bs){
             this.bs = bs;
 		
@@ -66,6 +76,11 @@ public class BoardDrawing extends JPanel{
 	}
 	
         //Da color a los componentes del tablero
+
+    /**
+     *
+     * @param g
+     */
 	public void paintComponent(Graphics g){
             super.paintComponent(g);
             Graphics2D g2d = (Graphics2D) g;//.create();
@@ -169,27 +184,60 @@ public class BoardDrawing extends JPanel{
             }
         }
         
-        
-        public void setColor(Graphics graph, Color color){
+    /**
+     *
+     * @param graph
+     * @param color
+     */
+    public void setColor(Graphics graph, Color color){
             graph.setColor(color);
         }
         
         //Cambia a la posición del jugador
+
+    /**
+     *
+     * @param graph
+     * @param cell
+     * @param pl
+     * @param cellWidth
+     * @param cellHeight
+     */
         public void changeToPlayerPosition(Graphics graph, Rectangle cell, int pl, int cellWidth, int cellHeight){
             graph.fillRect(cell.getLocation().x + pl*cellWidth/4, cell.getLocation().y, cellWidth/4, cellHeight/4);
         }
         
         //Obtiene el color del jugador
+
+    /**
+     *
+     * @param pl
+     * @return
+     */
         public Color getPlayerColor(int pl){
             return bs.players.get(pl).getPlayerColor();
         }
         
         //Dibuja una línea en el gráfico
+
+    /**
+     *
+     * @param graph
+     * @param ind
+     * @param j
+     */
         public void drawLine(Graphics graph, int ind, int j){
             graph.drawLine((int)cells.get(ind).getCenterX(),(int) cells.get(ind).getCenterY(),(int) cells.get(j).getCenterX(),(int)cells.get(j).getCenterY());
         }
         
         //Dibuja un String en el gráfico
+
+    /**
+     *
+     * @param graph
+     * @param message
+     * @param cell
+     */
         public void drawString(Graphics graph, String message, Rectangle cell){
             graph.drawString(message,(int)cell.getCenterX(),(int)cell.getCenterY());
         }
@@ -202,6 +250,13 @@ public class BoardDrawing extends JPanel{
 		}
 	}
 	*/
+
+    /**
+     *
+     * @param pnos
+     * @return
+     */
+
 	public String ensurePlayerPosition(int pnos){
 		String message = "";
 		for(Portal port :bs.portals){
@@ -222,6 +277,13 @@ public class BoardDrawing extends JPanel{
 		player = a;
 	}
 	*/
+
+    /**
+     *
+     * @param a
+     * @param pnos
+     */
+
 	
 	public void setPlayer(int a, int pnos){
 		bs.players.get(pnos).incPosition(a);
