@@ -9,7 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ *
+ * @author hugaz
+ */
 public class WelcomeScreen extends JPanel{
 	JLabel title;
 	JButton go;
@@ -17,20 +20,34 @@ public class WelcomeScreen extends JPanel{
 	
 	MainWindow mw;
 	
-	public void setTitle(String t){
+    /**
+     *
+     * @param t
+     */
+    public void setTitle(String t){
 		title.setText(t);
 	}
 	
-	public void quitButtonActionListener(){
-		if(JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION)
+    /**
+     *
+     */
+    public void quitButtonActionListener(){
+		if(JOptionPane.showConfirmDialog(this, AREYOUSURE) == JOptionPane.OK_OPTION)
 	        System.exit(0);
 	}
 	
-	public void goButtonActionListener(){
-		mw.showCard("Two");
+    /**
+     *
+     */
+    public void goButtonActionListener(){
+		mw.showCard(NUMBER);
 	}
- 
-	public WelcomeScreen(MainWindow mw){
+
+    /**
+     *
+     * @param mw
+     */
+    public WelcomeScreen(MainWindow mw){
 		this.mw = mw;
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -39,8 +56,8 @@ public class WelcomeScreen extends JPanel{
 		
 		//add formatting here
 		
-		go = new JButton("New Game");
-		quit = new JButton("Quit");	
+		go = new JButton(NEWGAME);
+		quit = new JButton(QUIT);	
 		
 		go.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event){
@@ -57,5 +74,13 @@ public class WelcomeScreen extends JPanel{
 		add(go);
 		add(quit);
 	}
-
+        
+        private static final String AREYOUSURE = "Are you sure?";
+        private static final String NUMBER = "2";
+        private static final String NEWGAME = "New Game";
+        private static final String QUIT = "Quit";
+        
+        
 }
+
+
