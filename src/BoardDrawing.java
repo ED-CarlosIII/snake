@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 //note: board does not change dynamically 
 //note: board shape and window aesthetics to be set
 //note: unification of colors not done
+
+/**
+ *
+ * @author Galo Alberto Murrieta Asencio
+ */
 public class BoardDrawing extends JPanel {
 
     /**
@@ -26,6 +31,12 @@ public class BoardDrawing extends JPanel {
     //ArrayList<Portal> portals;
     //ArrayList<Player> players;
 
+    /**
+     * constructor de la clase de dibuja un tablero
+     * @param row nº de la fila 
+     * @param col nº de columna
+     * @param bs objeto de la clase tablero
+     */
     public BoardDrawing(int row, int col, BoardScreen bs) {
         this.bs = bs;
 
@@ -64,7 +75,12 @@ public class BoardDrawing extends JPanel {
         }
 
     }
-
+    
+/**
+ * Metodo que dibuja un componente
+ * @param g objeto de la clase graphigs
+ */
+    
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;//.create();
@@ -188,6 +204,13 @@ public class BoardDrawing extends JPanel {
 		}
 	}
      */
+
+    /**
+     * metodo que compprueba la casilla del jugador
+     * @param pnos indica el número de casilla donde se encuentra
+     * @return mensaje cuando se encuentra una escalera o una serpiente
+     */
+
     public String ensurePlayerPosition(int pnos) {
         String message = "";
         for (Portal port : bs.portals) {
@@ -208,6 +231,13 @@ public class BoardDrawing extends JPanel {
 		player = a;
 	}
      */
+
+    /**
+     * Método para colocar al jugador en el trablero
+     * @param a entero que indica la nueva posición
+     * @param pnos enterooo que indica el número de casilla donde se encuentra
+     */
+
     public void setPlayer(int a, int pnos) {
         bs.players.get(pnos).incPosition(a);
     }
