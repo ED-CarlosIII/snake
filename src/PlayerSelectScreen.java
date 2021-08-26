@@ -57,7 +57,10 @@ public class PlayerSelectScreen extends JPanel {
 		opt1.setSelected(true);
 		
 		opt2 = new JRadioButton("2 Players");
+               // opt2.setSelected(true);
+                
 		opt3 = new JRadioButton("3 Players");
+                //opt3.setSelected(true);
 		
 		ButtonGroup grp = new ButtonGroup();
 		grp.add(opt1);
@@ -67,38 +70,33 @@ public class PlayerSelectScreen extends JPanel {
 		add(opt1);
 		add(opt2);
 		add(opt3);
+            ActionListener actionListener = new ActionListener(){
+                public void actionPerformed(ActionEvent event){
+                    playerOptions();
+                }
+            };
 
-		opt1.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				playerOptions();
-			}
-		});
-		opt2.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				playerOptions();
-			}
-		});
+		opt1.addActionListener(actionListener);
+		opt2.addActionListener(actionListener);
 		
-		opt3.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				playerOptions();
-			}
-		});
+		opt3.addActionListener(actionListener);
 		
 		go = new JButton("Customize Board");
 		quit = new JButton("Back");	
+            ActionListener actionListenerGoButton = new ActionListener(){
+                public void actionPerformed(ActionEvent event){
+                    goButtonActionListener();
+                }
+            };
 		
-		go.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				goButtonActionListener();
-			}
-		});
+		go.addActionListener(actionListenerGoButton);
+            ActionListener actionListenerQuitButton = new ActionListener(){
+                public void actionPerformed(ActionEvent event){
+                    quitButtonActionListener();
+                }
+            };
 		
-		quit.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event){
-				 quitButtonActionListener();
-			}
-		});
+		quit.addActionListener(actionListenerQuitButton);
 		
 		add(go);
 		add(quit);
