@@ -18,7 +18,6 @@ public class WelcomeScreen extends JPanel {
     private static final String SALIR = "Quit";
     private static final String NUEVO_JUEGO = "New Game";
 
-
     MainWindow mw;
 
     public void setTitle(String t) {
@@ -62,5 +61,5 @@ public class WelcomeScreen extends JPanel {
         add(go);
         add(quit);
     }
-  
+
 }
