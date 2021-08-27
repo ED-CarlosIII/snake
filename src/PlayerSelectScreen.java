@@ -19,6 +19,12 @@ public class PlayerSelectScreen extends JPanel {
 	JRadioButton opt2;
 	JRadioButton opt3;
 	
+        final String strSelectPlayers = "Select Players: ";
+        final String strDefaultPlayer = "Default: 1Player";
+        final String str1Player = "1 Player(Default)";
+        final String str2Players = "2 Players";
+        final String str3Players = "3 Players";
+        
 	public void quitButtonActionListener(){
 		mw.showCard("One");
 	}
@@ -44,20 +50,22 @@ public class PlayerSelectScreen extends JPanel {
 		this.mw = mw;
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
 		
-		JLabel mess = new JLabel("Select Players: ");
+		JLabel mess = new JLabel(strSelectPlayers);
 		add(mess);
+            
 		
-		JLabel uc = new JLabel("Default: 1Player");
+		JLabel uc = new JLabel(strDefaultPlayer);
 		add(uc);
+            
 		
 		//set up radio buttons
 		
-		opt1 = new JRadioButton("1 Player(Default)");
+		opt1 = new JRadioButton(str1Player);
 		opt1.setSelected(true);
-		
-		opt2 = new JRadioButton("2 Players");
-		opt3 = new JRadioButton("3 Players");
+		opt2 = new JRadioButton(str2Players);
+		opt3 = new JRadioButton(str3Players);
 		
 		ButtonGroup grp = new ButtonGroup();
 		grp.add(opt1);
