@@ -1,48 +1,88 @@
+
 import java.awt.Color;
 
-
+/**
+ *
+ * @author alumno
+ */
 public class Player {
-	private String name;
-	private int playerPosn;
-	private int playerScore;
-	private Color playerColor;
-	
-	public Player(int no){
-	    name = "Player " + no;
-	    playerPosn = 0;
-	}
-	
-	public int getPosition(){
-		return playerPosn;
-	}
-	
 
-	public String getName(){
-		return name;
-	}
-	
-	public void setPosition(int posn){
-		playerPosn = posn;
-	}
-	
-	public void incPosition(int posn){
-		playerPosn += posn;
-	}
-	
-	public void setPlayerColor(Color c){
-		playerColor = c;
-	}
-	
-	public Color getPlayerColor(){
-		return playerColor;
-	}
-	
-	public void incPlayerScore(int a){
-		playerScore += a;
-	}
-	
-	public int getPlayerScore(){
-		return playerScore;
-	}
+    private String name;
+    private int playerPosn;
+    private int playerScore;
+    private Color playerColor;
+
+    /**
+     *
+     * @param i
+     */
+    public Player(int no) {
+        name = "Player " + no;
+        playerPosn = 0;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getPosition() {
+        return playerPosn;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param posn
+     */
+    public void setPosition(int posn) {
+        playerPosn = posn;
+    }
+
+    /**
+     *
+     * @param posn
+     */
+    public void incPosition(int posn) {
+        playerPosn += posn;
+    }
+
+    /**
+     *
+     * @param c
+     */
+    public void setPlayerColor(Color c) {
+        playerColor = c;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Color getPlayerColor() {
+        return playerColor;
+    }
+
+    /**
+     *
+     * @param a
+     */
+    public void incPlayerScore(int a) {
+        playerScore += a;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getPlayerScore() {
+        return playerScore;
+    }
 
 }
